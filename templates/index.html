@@ -1,0 +1,69 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+
+    <!--========= Required meta tags =========-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Purefit - Health Supplement Landing Page</title>
+    {% load static %}
+
+    <!-- css include -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <!-- CSS here -->
+
+</head>
+
+<body class="demo-dark">
+<!-- backtotop - start -->
+<div class="xb-backtotop style-two">
+    <a href="#" class="scroll">
+        <i class="far fa-arrow-up"></i>
+    </a>
+</div>
+<!-- backtotop - end -->
+
+<!-- preloader start -->
+<div id="xb-loadding" class="xb-loadding-container style-dark">
+    <div class="xb-loader">
+        <div class="xb-loadding-inner">
+            <img src="{% static 'assets/img/logo/preloader2.png' %}" alt="">
+         </div>
+    </div>
+</div>
+<!-- preloader end -->
+
+{% include 'navbar.html' %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'footer.html' %}
+
+
+<!-- jquery include -->
+<script src="{% static 'assets/js/jquery-3.7.1.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/swiper.min.js' %}"></script>
+<script src="{% static 'assets/js/wow.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'assets/js/touchspin.js' %}"></script>
+<script src="{% static 'assets/js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.inview.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.easing.js' %}"></script>
+<script src="{% static 'assets/js/scrollspy.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
