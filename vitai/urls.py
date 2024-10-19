@@ -20,5 +20,4 @@ from UserApp import views as Userviews
 urlpatterns = [
     path('', Userviews.home, name='home'),
     path('admin/', admin.site.urls),
-
 ]
