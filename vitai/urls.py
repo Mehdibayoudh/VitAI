@@ -19,6 +19,7 @@ from django.urls import path, include
 
 from UserApp import views as Userviews
 urlpatterns = [
+    path('', Userviews.home, name='home'),
     path('users/', include('UserApp.urls')),
     path('admin/', admin.site.urls),
 
