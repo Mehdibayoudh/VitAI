@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import time
+from mongoengine import connect
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +30,30 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Connect to the MongoDB database locally
+from mongoengine import connect
+
+def connect_with_retry(db, host='localhost', port=27017, max_retries=20, retry_delay=3):
+    retries = 0
+    while retries < max_retries:
+        try:
+            connect(db=db, host=host, port=port)
+            print("Connected to the database successfully!")
+            return True
+        except Exception as e:
+            retries += 1
+            print(f"Connection failed (attempt {retries}/{max_retries}). Retrying in {retry_delay} seconds...")
+            time.sleep(retry_delay)
+
+    print("Failed to connect after several attempts. Please check your connection or credentials.")
+    return False
+
+# Local database connection details
+db_name = "vitai"
+host = "localhost"  # Local MongoDB server
+port = 27017        # Default MongoDB port
+
+connect_with_retry(db=db_name, host=host, port=port)
 
 # Application definition
 
@@ -38,6 +65,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'UserApp',
+    'EventApp',
 ]
 
 MIDDLEWARE = [
