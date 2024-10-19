@@ -35,11 +35,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-<<<<<<< HEAD
 import time
-=======
 # Connect to the MongoDB database locally
->>>>>>> 141b6034004be8871c64041d8bd99560b7b60b40
 from mongoengine import connect
 
 def connect_with_retry(db, host='localhost', port=27017, max_retries=20, retry_delay=3):
@@ -57,12 +54,7 @@ def connect_with_retry(db, host='localhost', port=27017, max_retries=20, retry_d
     print("Failed to connect after several attempts. Please check your connection or credentials.")
     return False
 
-# Local database connection details
-<<<<<<< HEAD
 db_name = "Vitai"
-=======
-db_name = "vitai"
->>>>>>> 141b6034004be8871c64041d8bd99560b7b60b40
 host = "localhost"  # Local MongoDB server
 port = 27017        # Default MongoDB port
 
