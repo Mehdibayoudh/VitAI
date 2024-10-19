@@ -16,6 +16,9 @@ import time
 from django.contrib.messages import constants as message_constants
 
 from pathlib import Path
+import time
+from mongoengine import connect
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +35,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+<<<<<<< HEAD
 import time
+=======
+# Connect to the MongoDB database locally
+>>>>>>> 141b6034004be8871c64041d8bd99560b7b60b40
 from mongoengine import connect
 
 def connect_with_retry(db, host='localhost', port=27017, max_retries=20, retry_delay=3):
@@ -51,7 +58,11 @@ def connect_with_retry(db, host='localhost', port=27017, max_retries=20, retry_d
     return False
 
 # Local database connection details
+<<<<<<< HEAD
 db_name = "Vitai"
+=======
+db_name = "vitai"
+>>>>>>> 141b6034004be8871c64041d8bd99560b7b60b40
 host = "localhost"  # Local MongoDB server
 port = 27017        # Default MongoDB port
 
@@ -67,6 +78,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'UserApp',
+    'EventApp',
 ]
 
 MIDDLEWARE = [
