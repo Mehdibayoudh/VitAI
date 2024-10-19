@@ -1,7 +1,9 @@
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect , get_object_or_404
 from .models import Exercise
 from .forms import ExerciseForm
+from django.http import JsonResponse
+
 
 def create_exercise(request):
     if request.method == 'POST':
@@ -29,8 +31,8 @@ def update_exercise(request, pk):
     return render(request, 'exercise_form.html', {'form': form})
 
 def delete_exercise(request, pk):
-    exercise = Exercise.objects.get(pk=pk)
+    exercise = get_object_or_404(Exercise, pk=pk)
     if request.method == 'POST':
         exercise.delete()
-        return redirect('exercise_list')
-    return render(request, 'exercise_confirm_delete.html', {'exercise': exercise})
+        return JsonResponse({'success': True, 'message': 'Exercise deleted successfully!'})
+    return JsonResponse({'success': False, 'message': 'Failed to delete exercise.'})

@@ -31,5 +31,4 @@ urlpatterns = [
     path('exercises/update/<int:pk>/', ExerciseViews.update_exercise, name='update_exercise'),  # Update an exercise
     path('exercises/delete/<int:pk>/', ExerciseViews.delete_exercise, name='delete_exercise'),
 
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

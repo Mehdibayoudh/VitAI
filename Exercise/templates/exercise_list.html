@@ -57,7 +57,7 @@
                                 <a href="{% url 'update_exercise' exercise.pk %}" title="Edit">
                                     <i class="fas fa-edit" style="color: yellow;"></i> <!-- Edit icon -->
                                 </a> | 
-                                <a href="{% url 'delete_exercise' exercise.pk %}" title="Delete">
+                                <a href="#" title="Delete" onclick="confirmDelete('{{ exercise.pk }}'); return false;">
                                     <i class="fas fa-trash-alt" style="color: yellow;"></i> <!-- Delete icon -->
                                 </a>
                             </li>
@@ -74,6 +74,7 @@
  </a>
  
 </section>
+<div id="message"></div> <!-- Div to display success/failure messages -->
 
 
 {% endblock %}
