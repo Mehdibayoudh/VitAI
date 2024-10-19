@@ -13,13 +13,14 @@
                     <div class="row">
                         <div class="col-lg-12 pb-col-12">
                             <div class="row g-20">
+                                {% for event in events %}
                                 <div class="col-lg-4 col-md-4 mt-20">
                                     <div class="popular-product-item ul_li">
                                         <div class="xb-item--img">
                                             <a href="shop-single.html"><img src="assets/img/shop/product_17.png" alt=""></a>
                                         </div>
                                         <div class="xb-item--holder">
-                                            <h3 class="xb-item--title"><a href="shop-single.html">xplode powder</a></h3>
+                                            <h3 class="xb-item--title"><a href="shop-single.html">{{ event.name }}</a></h3>
                                             <div class="xb-item--rating-inner ul_li">
                                                 <ul class="xb-item--rating ul_li">
                                                     <li><img src="assets/img/icon/star.png" alt=""></li>
@@ -28,65 +29,17 @@
                                                     <li><img src="assets/img/icon/star.png" alt=""></li>
                                                     <li><img src="assets/img/icon/star.png" alt=""></li>
                                                 </ul>
-                                                <span>(36)</span>
-                                            </div>
-                                            <div class="xb-item--action ul_li_between">
-                                                <h4 class="xb-item--price">$115.00</h4>
-                                                <a class="xb-item--cart" href="shop-single.html"><img src="assets/img/icon/bag.svg" alt=""></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 mt-20">
-                                    <div class="popular-product-item ul_li">
-                                        <div class="xb-item--img">
-                                            <a href="shop-single.html"><img src="assets/img/shop/product_17.png" alt=""></a>
-                                        </div>
-                                        <div class="xb-item--holder">
-                                            <h3 class="xb-item--title"><a href="shop-single.html">xplode powder</a></h3>
-                                            <div class="xb-item--rating-inner ul_li">
-                                                <ul class="xb-item--rating ul_li">
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                </ul>
-                                                <span>(36)</span>
-                                            </div>
-                                            <div class="xb-item--action ul_li_between">
-                                                <h4 class="xb-item--price">$115.00</h4>
-                                                <a class="xb-item--cart" href="shop-single.html"><img src="assets/img/icon/bag.svg" alt=""></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 mt-20">
-                                    <div class="popular-product-item ul_li">
-                                        <div class="xb-item--img">
-                                            <a href="shop-single.html"><img src="assets/img/shop/product_17.png" alt=""></a>
-                                        </div>
-                                        <div class="xb-item--holder">
-                                            <h3 class="xb-item--title"><a href="shop-single.html">xplode powder</a></h3>
-                                            <div class="xb-item--rating-inner ul_li">
-                                                <ul class="xb-item--rating ul_li">
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                </ul>
-                                                <span>(36)</span>
-                                            </div>
-                                            <div class="xb-item--action ul_li_between">
-                                                <h4 class="xb-item--price">$115.00</h4>
-                                                <a class="xb-item--cart" href="shop-single.html"><img src="assets/img/icon/bag.svg" alt=""></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                                <h5 class="xb-item--price">{{ event.participants }}</h5>
 
-
+                                            </div>
+                                            <div class="xb-item--action ul_li_between">
+                                                <h5 class="xb-item--price">{{ event.date }}</h5>
+                                                <a class="xb-item--cart" href="shop-single.html"><img src="assets/img/icon/bag.svg" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -96,11 +49,5 @@
 
         </div>
 
-
-{#<div class="bigj">testing</div>#}
-{#{% for user in users %}#}
-{#        <li>name : {{ user.name }} email : {{ user.email }}#}
-{#        </li>#}
-{#{% endfor %}#}
 
 {% endblock %}
