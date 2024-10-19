@@ -1,0 +1,84 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div style="margin-top: 400px" class="container">
+    <div id="contact" class="contact pb-100">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="xb-contact contact-mt--255">
+                    <div class="contact-title mb-35">
+                        <span><img src="assets/img/icon/directbox-notif.svg" alt="">Sign Up</span>
+                        <h3>Create Your Account</h3>
+                    </div>
+
+                    <form method="POST" class="contact-form" action="{% url 'signup' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <!-- Username -->
+                            <div class="col-lg-6">
+                                <div class="xb-item--field">
+                                    <span><img src="{% static 'assets/img/icon/c_user.svg' %}" alt=""></span>
+                                    <input type="text" name="username" placeholder="Username" required>
+                                </div>
+                            </div>
+                            <!-- Email -->
+                            <div class="col-lg-6">
+                                <div class="xb-item--field">
+                                    <span><img src="{% static 'assets/img/icon/c_email.svg' %}" alt=""></span>
+                                    <input type="email" name="email" placeholder="Email" required>
+                                </div>
+                            </div>
+                            <!-- Password -->
+                            <div class="col-lg-6">
+                                <div class="xb-item--field">
+                                    <span><img src="{% static 'assets/img/icon/c_lock.svg' %}" alt=""></span>
+                                    <input type="password" name="password" placeholder="Password" required>
+                                </div>
+                            </div>
+                            <!-- Check Password -->
+                            <div class="col-lg-6">
+                                <div class="xb-item--field">
+                                    <span><img src="{% static 'assets/img/icon/c_lock.svg' %}" alt=""></span>
+                                    <input type="password" name="checkPassword" placeholder="Confirm Password" required>
+                                </div>
+                            </div>
+                            <!-- Profile Image -->
+                            <div class="col-12">
+                                <div class="xb-item--field">
+                                    <label>Attach Cover Photo</label>
+                                    <div class="ms-upload-file image-upload">
+                                        <input type="file" name="profile_image" accept="image/*" onchange="previewImage(event)" />
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Submit Button -->
+                            <div class="col-12">
+                                <button class="thm-btn thm-btn--black" type="submit">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0]; // Get the selected file
+        const reader = new FileReader(); // Create a FileReader object
+
+        reader.onload = function(e) {
+            const imageUpload = document.querySelector('.image-upload');
+            imageUpload.style.backgroundImage = `url(${e.target.result})`;
+            imageUpload.style.backgroundSize = 'cover'; // Cover the entire area
+            imageUpload.style.backgroundPosition = 'center'; // Center the image
+            imageUpload.style.color = 'transparent'; // Hide the text color
+        }
+
+        if (file) {
+            reader.readAsDataURL(file); // Read the image file as a data URL
+        }
+    }
+</script>
+{% endblock %}

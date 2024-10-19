@@ -9,6 +9,11 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os
+
+from mongoengine import connect
+import time
+from django.contrib.messages import constants as message_constants
 
 from pathlib import Path
 
@@ -27,6 +32,30 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+import time
+from mongoengine import connect
+
+def connect_with_retry(db, host='localhost', port=27017, max_retries=20, retry_delay=3):
+    retries = 0
+    while retries < max_retries:
+        try:
+            connect(db=db, host=host, port=port)
+            print("Connected to the database successfully!")
+            return True
+        except Exception as e:
+            retries += 1
+            print(f"Connection failed (attempt {retries}/{max_retries}). Retrying in {retry_delay} seconds...")
+            time.sleep(retry_delay)
+
+    print("Failed to connect after several attempts. Please check your connection or credentials.")
+    return False
+
+# Local database connection details
+db_name = "Vitai"
+host = "localhost"  # Local MongoDB server
+port = 27017        # Default MongoDB port
+
+connect_with_retry(db=db_name, host=host, port=port)
 
 # Application definition
 
@@ -119,6 +148,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'hpavilion198@gmail.com'
+EMAIL_HOST_PASSWORD = '2258369k'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
