@@ -15,10 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from Exercise import views as ExerciseViews 
 from UserApp import views as Userviews
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
+
     path('', Userviews.home, name='home'),
     path('admin/', admin.site.urls),
 
-]
+     # Exercise app URLs
+    path('exercises/', ExerciseViews.exercise_list, name='exercise_list'),  # List exercises
+    path('exercises/create/', ExerciseViews.create_exercise, name='create_exercise'),  # Create an exercise
+    path('exercises/update/<int:pk>/', ExerciseViews.update_exercise, name='update_exercise'),  # Update an exercise
+    path('exercises/delete/<int:pk>/', ExerciseViews.delete_exercise, name='delete_exercise'),
+
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
