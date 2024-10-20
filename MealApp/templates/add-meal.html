@@ -1,0 +1,120 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+        <div style="margin-top: 400px" class="container">
+
+            <div id="contact" class="contact pb-100">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="xb-contact contact-mt--255">
+                            <div class="contact-title mb-35">
+                                <span><img src="assets/img/icon/directbox-notif.svg" alt="">add Your Meals For Today ! </span>
+                                <!-- <h3>Do you have questions or went more <br> information?</h3> -->
+                            </div>
+
+<form method="POST" class="contact-form" action="{% url 'addMeal' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <!-- Meal Name -->
+        <div class="col-lg-6">
+            <div class="xb-item--field">
+                <!-- <span><img src="{% static 'assets/img/icon/c_user.svg' %}" alt=""></span> -->
+                <input type="text" name="name" placeholder="Meal Name" required>
+            </div>
+        </div>
+        <!-- meal_type -->
+        <div class="col-lg-6">
+            <div class="xb-item--field">
+                <select name="meal_type" required>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="snack">Snack</option>
+                </select>
+            </div>
+        </div>
+        <!-- calories -->
+        <div class="col-lg-6">
+            <div class="xb-item--field">
+                <!-- <span><img src="{% static 'assets/img/icon/c_location.svg' %}" alt=""></span> -->
+                <input style="width: 100%;
+                height: 60px;
+                border-radius: 0;
+                padding: 15px 20px;
+                border: 0;
+                -webkit-transition: 0.3s;
+                -o-transition: 0.3s;
+                transition: 0.3s;
+                color: var(--color-black);
+                font-weight: 500;
+                margin-top: 20px;
+                border: 1px solid #F1F1F1;" type="number" name="calories" placeholder="calories" required>
+            </div>
+        </div>
+        <!-- proteins -->
+        <div class="col-lg-6">
+            <div class="xb-item--field">
+                <!-- <span><img src="{% static 'assets/img/icon/c_location.svg' %}" alt=""></span> -->
+                <input style="width: 100%;
+                height: 60px;
+                border-radius: 0;
+                padding: 15px 20px;
+                border: 0;
+                -webkit-transition: 0.3s;
+                -o-transition: 0.3s;
+                transition: 0.3s;
+                color: var(--color-black);
+                font-weight: 500;
+                margin-top: 20px;
+                border: 1px solid #F1F1F1;" type="number" name="proteins" placeholder="proteins" required>
+            </div>
+        </div>
+        <!-- carbs -->
+        <div class="col-lg-6">
+            <div class="xb-item--field">
+                <!-- <span><img src="{% static 'assets/img/icon/c_location.svg' %}" alt=""></span> -->
+                <input style="width: 100%;
+                height: 60px;
+                border-radius: 0;
+                padding: 15px 20px;
+                border: 0;
+                -webkit-transition: 0.3s;
+                -o-transition: 0.3s;
+                transition: 0.3s;
+                color: var(--color-black);
+                font-weight: 500;
+                margin-top: 20px;
+                border: 1px solid #F1F1F1;" type="number" name="carbs" placeholder="carbs" required>
+            </div>
+        </div>
+        <!-- fats -->
+        <div class="col-lg-6">
+            <div class="xb-item--field">
+                <!-- <span><img src="{% static 'assets/img/icon/c_location.svg' %}" alt=""></span> -->
+                <input style="width: 100%;
+                height: 60px;
+                border-radius: 0;
+                padding: 15px 20px;
+                border: 0;
+                -webkit-transition: 0.3s;
+                -o-transition: 0.3s;
+                transition: 0.3s;
+                color: var(--color-black);
+                font-weight: 500;
+                margin-top: 20px;
+                border: 1px solid #F1F1F1;" type="number" name="fats" placeholder="fats" required>
+            </div>
+        </div>
+        
+        <!-- Submit Button -->
+        <div class="col-12 mt-20 ">
+            <button class="thm-btn thm-btn--black" type="submit">Add Meal</button>
+        </div>
+    </div>
+</form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

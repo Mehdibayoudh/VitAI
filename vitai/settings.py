@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'UserApp',
     'EventApp',
+    'MealApp',
 ]
 
 MIDDLEWARE = [
