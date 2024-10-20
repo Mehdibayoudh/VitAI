@@ -85,7 +85,7 @@
                     <div class="header__right d-none d-lg-block">
                         <div class="ul_li">
                             <div class="header-shop-cart">
-                                <a href="javascript:void(0);"><img src="assets/img/icon/bag.svg" alt=""><span class="mini-cart-count">2</span></a>
+                               <!-- <a href="javascript:void(0);"><img src="assets/img/icon/bag.svg" alt=""><span class="mini-cart-count">2</span></a>-->
                                 <div class="header-mini-cart">
                                     <ul class="woocommerce-mini-cart cart_list product_list_widget list-wrap">
                                         <li class="woocommerce-mini-cart-item d-flex align-items-center">
@@ -124,6 +124,23 @@
                                     </p>
                                 </div>
                             </div>
+                              {% if user %}
+                                   <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                                    {% csrf_token %}
+                                            <p class="message" style="display:inline; margin: 0;">Welcome, {{ user.username }}!</p>
+                                        <button type="submit" style="margin-left: 10px; background-color: #ff4d24; color: white; border: none; border-radius: 10%; width: 80px; height: 40px; cursor: pointer;">
+                                            Logout
+                                        </button>
+                                   </form>
+                            {% else %}
+                                  <script>
+                                    // Alert the user to log in
+                                    alert("You need to log in to access this page.");
+
+                                    // Redirect to home after the alert
+                                    window.location.href = "{% url 'home' %}";
+                                </script>
+                            {% endif %}
                             <a class="header__bar offcanvas-sidebar-btn" href="javascript:void(0);">
                                 <div class="header__bar-icon">
                                     <span></span>

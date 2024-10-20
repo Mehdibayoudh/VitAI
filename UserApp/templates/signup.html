@@ -1,76 +1,71 @@
-{% extends 'index.html' %}
 {% load static %}
-{% block content %}
-<div style="margin-top: 400px" class="container">
-    <div id="contact" class="contact pb-100">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="xb-contact contact-mt--255">
-                    <div class="contact-title mb-35">
-                        <span><img src="assets/img/icon/directbox-notif.svg" alt="">Sign Up</span>
-                        <h3>Create Your Account</h3>
-                    </div>
+<head>
+      <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-                    <form method="POST" class="contact-form" action="{% url 'signup' %}" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <div class="row">
-                            <!-- Username -->
-                            <div class="col-lg-6">
+    <title>Purefit - Health Supplement Landing Page</title>
+    <link rel="stylesheet" href="{% static 'assets/css/signup.css' %}">
+</head>
+
+<div class="container right-panel-active">
+	<!-- Sign Up -->
+	<div class="container__form container--signup">
+		<form action="{% url 'signup' %}" method="POST" class="form" id="form1" enctype="multipart/form-data">
+        {% csrf_token %}
+			<h2 class="form__title">Sign Up</h2>
+			<input name="username" type="text" placeholder="User" class="input" />
+			<input name="email" type="email" placeholder="Email" class="input" />
+			<input name="password" type="password" placeholder="Password" class="input" />
+			<input name="checkPassword" type="password" placeholder="checkPassword" class="input" />
+              <div class="col-12">
                                 <div class="xb-item--field">
-                                    <span><img src="{% static 'assets/img/icon/c_user.svg' %}" alt=""></span>
-                                    <input type="text" name="username" placeholder="Username" required>
-                                </div>
-                            </div>
-                            <!-- Email -->
-                            <div class="col-lg-6">
-                                <div class="xb-item--field">
-                                    <span><img src="{% static 'assets/img/icon/c_email.svg' %}" alt=""></span>
-                                    <input type="email" name="email" placeholder="Email" required>
-                                </div>
-                            </div>
-                            <!-- Password -->
-                            <div class="col-lg-6">
-                                <div class="xb-item--field">
-                                    <span><img src="{% static 'assets/img/icon/c_lock.svg' %}" alt=""></span>
-                                    <input type="password" name="password" placeholder="Password" required>
-                                </div>
-                            </div>
-                            <!-- Check Password -->
-                            <div class="col-lg-6">
-                                <div class="xb-item--field">
-                                    <span><img src="{% static 'assets/img/icon/c_lock.svg' %}" alt=""></span>
-                                    <input type="password" name="checkPassword" placeholder="Confirm Password" required>
-                                </div>
-                            </div>
-                            <!-- Profile Image -->
-                            <div class="col-12">
-                                <div class="xb-item--field">
-                                    <label>Attach Cover Photo</label>
+                                    <small>Attach Cover Photo</small>
                                     <div class="ms-upload-file image-upload">
                                         <input type="file" name="profile_image" accept="image/*" onchange="previewImage(event)" />
                                         <i class="fas fa-plus"></i>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Submit Button -->
-                            <div class="col-12">
-                                <button class="thm-btn thm-btn--black" type="submit">Sign Up</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
-            </div>
+			<button type="submit" class="btn">Sign Up</button>
+		</form>
+	</div>
+
+	<!-- Sign In -->
+	<!-- Sign In -->
+        <div class="container__form container--signin">
+            <form action="{% url 'loginuser' %}" method="POST" class="form" id="form2" enctype="multipart/form-data"> <!-- Updated action to use login URL -->
+                {% csrf_token %}
+                <h2 class="form__title">Sign In</h2>
+			    <input name="username" type="text" placeholder="User" class="input" required />
+                <input name="password" type="password" placeholder="Password" class="input"  /> <!-- Added name attribute -->
+                <a href="#" class="link">Forgot your password?</a>
+                <button type="submit" class="btn">Sign In</button> <!-- Added type="submit" -->
+            </form>
         </div>
-    </div>
+
+
+	<!-- Overlay -->
+	<div class="container__overlay">
+		<div class="overlay">
+			<div class="overlay__panel overlay--left">
+				<button class="btn" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay__panel overlay--right">
+				<button class="btn" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
 </div>
-<script>
+ <script>
     function previewImage(event) {
         const file = event.target.files[0]; // Get the selected file
         const reader = new FileReader(); // Create a FileReader object
 
         reader.onload = function(e) {
             const imageUpload = document.querySelector('.image-upload');
-            imageUpload.style.backgroundImage = `url(${e.target.result})`;
+            imageUpload.style.backgroundImage = `url(${e.target.result})`; // Corrected template literal
             imageUpload.style.backgroundSize = 'cover'; // Cover the entire area
             imageUpload.style.backgroundPosition = 'center'; // Center the image
             imageUpload.style.color = 'transparent'; // Hide the text color
@@ -81,4 +76,29 @@
         }
     }
 </script>
-{% endblock %}
+
+ <script>
+     const signInBtn = document.getElementById("signIn");
+const signUpBtn = document.getElementById("signUp");
+const firstForm = document.getElementById("form1"); // Fix: changed 'fistForm' to 'firstForm'
+const secondForm = document.getElementById("form2");
+const container = document.querySelector(".container");
+
+signInBtn.addEventListener("click", () => {
+    container.classList.remove("right-panel-active");
+});
+
+signUpBtn.addEventListener("click", () => {
+    container.classList.add("right-panel-active");
+});
+
+// Allow form submission, don't prevent default behavior for form1
+firstForm.addEventListener("submit", (e) => {
+    // No need to call e.preventDefault() here
+});
+
+// Prevent second form submission if you don't want it to submit
+secondForm.addEventListener("submit", (e) => {
+});
+
+ </script>
