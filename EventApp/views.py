@@ -15,6 +15,27 @@ def delete_event(request, idEvent):
     return redirect('allEvents')  # If event doesn't exist, redirect
 
 
+def update_event(request, idEvent):
+    event = SportEvent.objects.get(id=idEvent)
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        date = request.POST.get('date')
+        location = request.POST.get('location')
+        participants = request.POST.get('participants')
+
+        if not (name and date and location and participants):
+            # If any field is missing, return an error or show a message
+            return render(request, 'update-event.html', {'event': event, 'error': 'Please fill in all fields.'})
+
+        # Update the event with the new data
+        event.name = name
+        event.date = date
+        event.location = location
+        event.participants = participants
+        event.save()
+        return redirect('allEvents')  # Redirect to the list of events
+
 
 
 def all_events(request):

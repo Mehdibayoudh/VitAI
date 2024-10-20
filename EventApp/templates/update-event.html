@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+        <div style="margin-top: 400px" class="container">
+
+            <div id="contact" class="contact pb-100">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="xb-contact contact-mt--255">
+                            <div class="contact-title mb-35">
+                                <span><img src="assets/img/icon/directbox-notif.svg" alt="">update event</span>
+                                <h3>Do you have questions or went more <br> information?</h3>
+                            </div>
+
+<form method="POST" class="contact-form" action="{% url 'update_event' event.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <!-- Event Name -->
+        <div class="col-lg-6">
+            <div class="xb-item--field">
+                <span><img src="{% static 'assets/img/icon/c_user.svg' %}" alt=""></span>
+                <input value="{{ event.name }}" type="text" name="name" placeholder="Event Name" >
+            </div>
+        </div>
+        <!-- Event Date -->
+        <div class="col-lg-6">
+            <div class="xb-item--field">
+                <span><img src="{% static 'assets/img/icon/c_calendar.svg' %}" alt=""></span>
+<div  class="form-group">
+    <label for="eventDate">Event Date</label>
+    <input style="height: 45px;" value="{{ event.date|date:'Y-m-d' }}" type="date" name="date" id="eventDate" class="form-control" placeholder="Event Date">
+</div>
+            </div>
+        </div>
+        <!-- Location -->
+        <div class="col-12">
+            <div class="xb-item--field">
+                <span><img src="{% static 'assets/img/icon/c_location.svg' %}" alt=""></span>
+                <input value="{{ event.location }}" type="text" name="location" placeholder="Location">
+            </div>
+        </div>
+        <!-- Participants -->
+        <div class="col-12">
+            <div class="xb-item--field">
+                <span><img src="{% static 'assets/img/icon/c_people.svg' %}" alt=""></span>
+<div class="form-group">
+    <label for="eventParticipants">Number of Participants</label>
+    <input value="{{ event.participants }}" type="number" name="participants" id="eventParticipants" class="form-control" placeholder="Number of Participants">
+</div>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="col-12 mt-4">
+            <button class="thm-btn thm-btn--black" type="submit">Update Event</button>
+        </div>
+    </div>
+</form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

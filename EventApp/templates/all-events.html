@@ -17,7 +17,7 @@
 <div class="col-lg-4 col-md-4 mt-20">
     <div class="popular-product-item ul_li">
         <div class="xb-item--img">
-            <a href="shop-single.html"><img src="assets/img/shop/product_17.png" alt=""></a>
+            <a href="shop-single.html"><img src="{% static 'assets/img/shop/product_17.png'%}" alt=""></a>
         </div>
         <div class="xb-item--holder">
             <h3 class="xb-item--title"><a href="shop-single.html">{{ event.name }}</a></h3>
@@ -39,7 +39,13 @@
 
                 <!-- Delete Form -->
     <form action="{% url 'delete_event' event.id %}" method="POST" style="display:inline;">
-        <input type="submit" value="Supprimer">
+        <input class="xb-item--badge" type="submit" value="Supprimer">
+        {% csrf_token %}
+    </form>
+
+                                <!-- Delete Form -->
+    <form action="{% url 'update_event' event.id %}" method="POST" style="display:inline;">
+        <input class="xb-item--cart" type="submit" value="edit">
         {% csrf_token %}
     </form>
 
