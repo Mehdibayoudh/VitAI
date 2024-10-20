@@ -1,11 +1,26 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from bson import ObjectId
+
 from .models import SportEvent
 # Create your views here.
+
+
+
+def delete_event(request, idEvent):
+    if request.method == "POST":
+        event = SportEvent.objects.get(id=idEvent)
+        event.delete()  # Delete the user if found
+        return redirect('allEvents')  # If event doesn't exist, redirect
+    return redirect('allEvents')  # If event doesn't exist, redirect
+
+
+
 
 def all_events(request):
     events = SportEvent.objects.all()
     return render(request, 'all-events.html', {'events': events})
+
 
 
 def create_event(request):
@@ -29,3 +44,4 @@ def create_event(request):
             return HttpResponse('Please fill all fields')
 
     return render(request, 'add-event.html')
+
