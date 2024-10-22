@@ -3,92 +3,91 @@
 {% block content %}
 
             <div class="bg_img position-botttom bottom--105 pb-70" data-background="assets/img/bg/pp_bg.png">
+            
+
             <!-- popular product start -->
             <section class="popular-product pt-120 pb-120">
                 <div class="container">
                     <div class="sec-title text-center mb-30">
                         <span class="sub-title">Shop</span>
-                        <h2 class="title">our popular product</h2>
+                        <div style="display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 20px;">
+                        <h2 class="title">Your Meals for Today</h2>
+                        <a href="addMeal" style="text-decoration: none;">
+                        <button style="font-size: medium;
+                        font-weight: bold;
+                        color: white;
+                        padding: 5px;
+                        background-color: orangered;
+                        border-radius: 10px;
+                        cursor: pointer;">Add Meal &plus;</button>
+                        </a>
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-12 pb-col-12">
-                            <div class="row g-20">
-                                <div class="col-lg-4 col-md-4 mt-20">
-                                    <div class="popular-product-item ul_li">
-                                        <div class="xb-item--img">
-                                            <a href="shop-single.html"><img src="assets/img/shop/product_17.png" alt=""></a>
-                                        </div>
-                                        <div class="xb-item--holder">
-                                            <h3 class="xb-item--title"><a href="shop-single.html">xplode powder</a></h3>
-                                            <div class="xb-item--rating-inner ul_li">
-                                                <ul class="xb-item--rating ul_li">
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                </ul>
-                                                <span>(36)</span>
-                                            </div>
-                                            <div class="xb-item--action ul_li_between">
-                                                <h4 class="xb-item--price">$115.00</h4>
-                                                <a class="xb-item--cart" href="shop-single.html"><img src="assets/img/icon/bag.svg" alt=""></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 mt-20">
-                                    <div class="popular-product-item ul_li">
-                                        <div class="xb-item--img">
-                                            <a href="shop-single.html"><img src="assets/img/shop/product_17.png" alt=""></a>
-                                        </div>
-                                        <div class="xb-item--holder">
-                                            <h3 class="xb-item--title"><a href="shop-single.html">xplode powder</a></h3>
-                                            <div class="xb-item--rating-inner ul_li">
-                                                <ul class="xb-item--rating ul_li">
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                </ul>
-                                                <span>(36)</span>
-                                            </div>
-                                            <div class="xb-item--action ul_li_between">
-                                                <h4 class="xb-item--price">$115.00</h4>
-                                                <a class="xb-item--cart" href="shop-single.html"><img src="assets/img/icon/bag.svg" alt=""></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 mt-20">
-                                    <div class="popular-product-item ul_li">
-                                        <div class="xb-item--img">
-                                            <a href="shop-single.html"><img src="assets/img/shop/product_17.png" alt=""></a>
-                                        </div>
-                                        <div class="xb-item--holder">
-                                            <h3 class="xb-item--title"><a href="shop-single.html">xplode powder</a></h3>
-                                            <div class="xb-item--rating-inner ul_li">
-                                                <ul class="xb-item--rating ul_li">
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                    <li><img src="assets/img/icon/star.png" alt=""></li>
-                                                </ul>
-                                                <span>(36)</span>
-                                            </div>
-                                            <div class="xb-item--action ul_li_between">
-                                                <h4 class="xb-item--price">$115.00</h4>
-                                                <a class="xb-item--cart" href="shop-single.html"><img src="assets/img/icon/bag.svg" alt=""></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        {% for meal in meals %}
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div style="display: flex;
+                                        flex-direction: column;
+                                        background-color: white;
+                                        padding: 25px;
+                                        align-items: center;
+                                        border-radius: 10px;
+                                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                    <!-- Delete Button -->
+                                    <form action="{% url 'delete_meal' meal.id %}" method="POST" style="display:inline;">
+                                        <button style="position: relative;
+                                            top: -6px;
+                                            right: -418%;
+                                        background-color: #ffd3d3;
+                                        color: #2d0000;
+                                        border: none;
+                                        border-radius: 50%;
+                                        width: 30px;
+                                        height: 30px;
+                                        font-size: 16px;
+                                        cursor: pointer;" type="submit" value="Supprimer">&times;</button>
+                                        {% csrf_token %}
+                                    </form>
 
 
+                                    <!-- update Button -->
+                                    <form action="{% url 'update_meal' meal.id %}" method="POST" style="display:inline;">
+                                        <button style="position: relative;
+                                               top: -35px;
+                                               right: -541%;
+                                        background-color: #ffd3d3;
+                                        color: #2d0000;
+                                        border: none;
+                                        border-radius: 50%;
+                                        width: 30px;
+                                        height: 30px;
+                                        font-size: 16px;
+                                        cursor: pointer;" type="submit" value="Supprimer">&#8635;</button>
+                                        {% csrf_token %}
+                                    </form>
+                                <h1 style="color: orangered; font-weight: bold;">{{ meal.meal_type }}</h1>
+                                <p style="font-size: x-large;
+                                color: #000000ad;
+                                font-weight: 900;
+                                padding-bottom: 15px;">{{ meal.name }}</p>
+                                <p>Calories : {{ meal.calories }} cal</p>
+                                <p>Proteins : {{ meal.proteins }} cal</p>
+                                <p>Carbs : {{ meal.carbs }} cal</p>
+                                <p>Fats : {{ meal.fats }} cal</p>
                             </div>
                         </div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                    <p style="    border: solid thin #ffffff8f;
+                    border-radius: 15px;
+                    padding: 25px;
+                    text-align: center;
+                    color: white;">Total Calories Consumed Today is: {{ total_calories }} cal</p>
                     </div>
                 </div>
             </section>
@@ -97,12 +96,5 @@
         </div>
 
 
-        <h2>Your Meals for Today</h2>
-        <ul>
-            {% for meal in meals %}
-                <li>{{ meal.name }} ({{ meal.meal_type }}): {{ meal.calories }} cal</li>
-            {% endfor %}
-        </ul>
-        <p>Total Calories: {{ total_calories }} cal</p>
 
 {% endblock %}
