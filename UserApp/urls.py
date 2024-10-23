@@ -12,5 +12,7 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('update-username/<str:user_id>/', views.update_username, name='update_username'),
     path('users/delete/<str:user_id>/', views.delete_user, name='delete_user'),  # Use <str> for ObjectId
+    path('capture/', views.capture, name='capture'),
+    path('save_face_image/', views.save_face_image, name='save_face_image'),
 
 ]

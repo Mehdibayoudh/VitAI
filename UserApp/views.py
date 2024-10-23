@@ -1,14 +1,14 @@
-from venv import logger
 
+
+from PIL import Image
+from io import BytesIO
 from django.contrib.auth.hashers import make_password
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import  redirect
 from django.contrib import messages
-from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .context_processors import user_context
 from .models import User
-from django.core.mail import send_mail
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.template.loader import render_to_string
@@ -19,6 +19,11 @@ from django.core.mail import EmailMultiAlternatives
 import logging
 from django.views.decorators.http import require_POST
 logger = logging.getLogger(__name__)
+from django.shortcuts import render
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import base64
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 def home(request):
@@ -54,74 +59,103 @@ def generate_token():
     """Generates a random token for email verification."""
     return get_random_string(64)
 
+
 def signup(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         username = request.POST.get('username')
         password = request.POST.get('password')
         checkPassword = request.POST.get('checkPassword')
+        face_image = request.FILES.get('face_image')  # Get the uploaded image
 
-        if request.FILES.get('profile_image') is not None:
-            profile_image = request.FILES.get('profile_image')
-        else:
-            profile_image = None
-
-        # Check if passwords match
-        if password != checkPassword:
-            messages.error(request, "Passwords don't match.")
+        # Validate password and user existence
+        if not validate_passwords(password, checkPassword) or user_exists(email):
             return redirect('signup')
 
-        # Check if the email already exists
-        if User.objects.filter(email=email):  # Change this line
-            messages.error(request, "User with this email already exists.")
-            return redirect('signup')
+        # Process face image and create user
+        user, file_url = create_user(username, email, password, face_image)
+        if user is None:
+            return redirect('signup')  # Handle user creation failure
 
-        # Create the user but keep them inactive until email is verified
-        user = User(
-            username=username,
-            email=email,
-            password=make_password(password),
-            image=profile_image,
-            is_active=False  # Mark user as inactive until email is verified
-        )
-        user.save()
-
-        # Generate verification token
-        token = generate_token()
-
-        # Save the token
-        user.verification_token = token
-        user.save()
-
-        # Prepare email verification link
-        current_site = get_current_site(request)
-        verification_link = reverse('verify_email', args=[urlsafe_base64_encode(force_bytes(user.pk)), token])
-        full_link = f"http://{current_site.domain}{verification_link}"
-
-        # Send verification email
-        subject = "Verify your email"
-        text_message = render_to_string('verifyemail.txt', {
-            'user': user,
-            'verification_link': full_link
-        })
-        html_message = render_to_string('verifyemail.html', {
-            'user': user,
-            'verification_link': full_link
-        })
-
-        email = EmailMultiAlternatives(subject, text_message, 'admin@yourdomain.com', [email])
-        email.attach_alternative(html_message, "text/html")  # Attach HTML version
-
-        try:
-            email.send()
-            messages.success(request, "User created successfully! Please verify your email to activate your account.")
-            return redirect('signup')
-        except Exception as e:
+        # Generate verification token and send email
+        if not send_verification_email(user, request):
             messages.error(request, "There was an error sending the verification email.")
             return redirect('signup')
 
+        messages.success(request, "User created successfully! Please verify your email.")
+        return redirect('signup')
 
     return render(request, 'signup.html')
+
+
+def validate_passwords(password, checkPassword):
+    if password != checkPassword:
+        messages.error(None, "Passwords don't match.")
+        return False
+    return True
+
+
+def user_exists(email):
+    if User.objects.filter(email=email).first():
+        messages.error(None, "User with this email already exists.")
+        return True
+    return False
+
+
+def create_user(username, email, password, face_image):
+    # Save the uploaded image and create user
+    file_url = None
+    if face_image:
+        fs = FileSystemStorage()
+        filename = fs.save(face_image.name, face_image)
+        file_url = fs.url(filename)  # Store the file URL
+
+    else:
+        logger.error("No face image uploaded.")
+
+    user = User(
+        username=username,
+        email=email,
+        password=make_password(password),
+        is_active=False,
+        face_image=face_image,  # Save original uploaded image
+        url=file_url,
+    )
+
+    user.save()
+    return user, file_url
+
+
+def send_verification_email(user, request):
+    token = generate_token()
+    user.verification_token = token
+    user.save()
+
+    # Prepare email verification link
+    current_site = get_current_site(request)
+    verification_link = reverse('verify_email', args=[urlsafe_base64_encode(force_bytes(user.pk)), token])
+    full_link = f"http://{current_site.domain}{verification_link}"
+
+    # Send verification email
+    subject = "Verify your email"
+    text_message = render_to_string('verifyemail.txt', {
+        'user': user,
+        'verification_link': full_link
+    })
+    html_message = render_to_string('verifyemail.html', {
+        'user': user,
+        'verification_link': full_link
+    })
+
+    email = EmailMultiAlternatives(subject, text_message, 'admin@yourdomain.com', [user.email])
+    email.attach_alternative(html_message, "text/html")
+
+    try:
+        email.send()
+        return True
+    except Exception as e:
+        logger.error(f"Error sending email: {e}")
+        return False
 
 
 def verify_email(request, uidb64, token):
@@ -188,3 +222,48 @@ def delete_user(request, user_id):
         user.delete()  # Delete the user if found
         return redirect('signup')
 
+def capture(request):
+    return render(request, 'users.html')  # Render home page with user context
+
+@csrf_exempt  # Only for testing; consider proper CSRF handling in production
+def save_face_image(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)  # Parse the JSON data
+            face_dimensions = data.get('face_dimensions')  # Get face dimensions (height, width, top, left)
+
+            # Log the received face dimensions
+            logger.info(f'Received face dimensions: {face_dimensions}')
+
+            if not face_dimensions:
+                return JsonResponse({'status': 'error', 'message': 'Face dimensions are required.'}, status=400)
+
+            # Static user details for testing
+            username = "static_username"
+            email = "static@example.com"
+            password = "static_password"
+            url = "http://example.com/static_url"  # Static URL
+
+            # Check if the user already exists
+            try:
+                user = User.objects.get(username=username)
+                user.face_dimensions = face_dimensions  # Save all face dimensions
+                user.save()
+                return JsonResponse({'status': 'success', 'message': 'User updated successfully.'})
+            except User.DoesNotExist:
+                # Create a new user if they don't exist
+                user = User(
+                    username=username,
+                    email=email,
+                    password=make_password(password),
+                    face_dimensions=face_dimensions,  # Save all face dimensions
+                    url=url  # Set static URL
+                )
+                user.save()  # Save new user
+                return JsonResponse({'status': 'success', 'message': 'User created successfully.'})
+
+        except json.JSONDecodeError:
+            logger.error('Invalid JSON received.')
+            return JsonResponse({'status': 'error', 'message': 'Invalid JSON.'}, status=400)
+
+    return JsonResponse({'status': 'error', 'message': 'Only POST method is allowed.'}, status=400)

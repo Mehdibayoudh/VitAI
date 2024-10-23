@@ -4,7 +4,12 @@
 
 <div class="container text-center mt-5">
     <div class="profile-container">
-        <img src="https://img.freepik.com/premium-photo/stylish-man-flat-vector-profile-picture-ai-generated_606187-310.jpg" alt="Profile Image" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px;">
+         {% if user.face_image %}
+        <img src="{{ user.url }}" alt="Face Image" />
+        {% else %}
+            <p>No image available</p>
+        {% endif %}
+
         <h2 id="username">{{ user.username }}</h2>
 
         <!-- Edit Input Field -->

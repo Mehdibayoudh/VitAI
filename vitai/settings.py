@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 
-from mongoengine import connect
+from mongoengine import *
 import time
 from django.contrib.messages import constants as message_constants
 
@@ -22,6 +22,9 @@ from mongoengine import connect
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -152,12 +155,12 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['console', 'file'],
-            'level': 'DEBUG',
-            'propagate': True,
+            'level': 'ERROR',  # Only log ERROR messages for Django's internal logs
+            'propagate': False,
         },
-        'UserApp': {  # Add this section for your UserApp
+        'UserApp': {  # Your custom app logger
             'handlers': ['console', 'file'],
-            'level': 'DEBUG',
+            'level': 'DEBUG',  # Log all messages, including DEBUG
             'propagate': False,
         },
     },
@@ -181,9 +184,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -197,3 +197,6 @@ EMAIL_HOST_PASSWORD = 'dywc edei ytxb eweq'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Or your preferred session backend
+
+FACEPLUSPLUS_API_KEY = 'LK1kVhRZWfuwuECyIZxjwDipDBIey5Y3'
+FACEPLUSPLUS_API_SECRET = 'QDpBathJGWwXXNXwG5Ze4jE8UfgCuX_t'
