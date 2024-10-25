@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Face Detection</title>
-    <style>
-        #video {
-            display: block;
-            width: 640px;
-            height: 480px;
-        }
-        #canvas {
-            display: none; /* Hide the canvas, we'll use it for drawing */
-        }
-    </style>
-</head>
-<body>
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    <div id="user-data" data-user-id="{{ user.id }}"></div>
+
     <h1>Face Detection</h1>
     <button id="capture-btn">Capture Face</button>
     <div id="result"></div>
@@ -24,6 +11,8 @@
 
 <script>
     // Get references to the video and canvas elements
+    const userId = document.getElementById('user-data').dataset.userId;
+
     const video = document.getElementById('video');
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');  // Get the 2D drawing context
@@ -71,7 +60,7 @@
                         face_dimensions: faceDimensions,
                         landmarks: face.landmark || null,
                         face_token: faceToken,  // Send the retrieved face token
-                        username: 'your_username'  // Replace with the current user's username
+                        user: userId  // Use the user ID from the data attribute
                     }),
                 });
 
@@ -92,5 +81,4 @@
         }, 1000); // Capture after 1000ms (1 second)
     });
 </script>
-</body>
-</html>
+{% endblock %}
