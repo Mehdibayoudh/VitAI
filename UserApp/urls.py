@@ -14,5 +14,7 @@ urlpatterns = [
     path('users/delete/<str:user_id>/', views.delete_user, name='delete_user'),  # Use <str> for ObjectId
     path('capture/', views.capture, name='capture'),
     path('save_face_image/', views.save_face_image, name='save_face_image'),
+    path('check_user/', views.check_user, name='check_user'),
+    path('page_check_user/', views.check_page_user, name='check_page_user'),
 
 ]

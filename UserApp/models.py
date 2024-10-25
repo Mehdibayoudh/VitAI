@@ -16,6 +16,7 @@ class User(Document):
     face_encodings = ListField()  # Store face encodings as a list of floats
     face_token = StringField(max_length=255, blank=True, null=True)  # Adjust length as needed
     face_dimensions = DictField()  # Store face dimensions as a dictionary
+    feature_vector = ListField()  # Store feature vectors as a list of floats
 
     url = StringField(max_length=200, required=True, unique=True)
 

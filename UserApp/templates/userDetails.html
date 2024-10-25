@@ -2,9 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Detection</title>
+    <style>
+        #video {
+            display: block;
+            width: 640px;
+            height: 480px;
+        }
+        #canvas {
+            display: none; /* Hide the canvas, we'll use it for drawing */
+        }
+    </style>
 </head>
 <body>
+    <h1>Face Detection</h1>
+    <button id="capture-btn">Capture Face</button>
+    <div id="result"></div>
+    <video id="video" autoplay></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+            const resultDiv = document.getElementById('result');
+
+            async function checkUserExists(faceToken) {
+                const response = await fetch('/users/check_user/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ face_token: faceToken }),
+                });
+
+                const result = await response.json();
+                return result; // Assume your backend returns user data and similarity score
+            }
+
+            document.getElementById('capture-btn').addEventListener('click', async () => {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+
+                setTimeout(async () => {
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    const frame = canvas.toDataURL('image/jpeg');
+
+                    // Face++ API request to detect face and get face_token
+                    const response = await fetch('https://api-us.faceplusplus.com/facepp/v3/detect', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams({
+                            api_key: 'LK1kVhRZWfuwuECyIZxjwDipDBIey5Y3',
+                            api_secret: 'QDpBathJGWwXXNXwG5Ze4jE8UfgCuX_t',
+                            image_base64: frame.split(',')[1],
+                            return_landmark: 1
+                        }),
+                    });
+
+                    const result = await response.json();
+
+                    if (result.faces && result.faces.length > 0) {
+                        const face = result.faces[0];
+                        const faceToken = face.face_token;
+                        const faceDimensions = face.face_rectangle;
+
+                        resultDiv.innerHTML = `Top: ${faceDimensions.top}, Left: ${faceDimensions.left}, Width: ${faceDimensions.width}, Height: ${faceDimensions.height}`;
+
+                        // Check if the user exists and get similarity score
+                        const userResult = await checkUserExists(faceToken);
+                        if (userResult.exists) {
+                            resultDiv.innerText += ` User exists in the database with similarity score: ${userResult.similarity_score.toFixed(2)}%`;
+                        } else {
+                            resultDiv.innerText += ' User does not exist in the database.';
+                        }
+                    } else {
+                        resultDiv.innerText = 'No face detected.';
+                    }
+                }, 1000); // Capture after 1000ms (1 second)
+            });
+        });
+    </script>
 </body>
 </html>

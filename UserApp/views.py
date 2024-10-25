@@ -1,12 +1,14 @@
 
 
-from PIL import Image
-from io import BytesIO
-from django.contrib.auth.hashers import make_password
+import httpx  # Use httpx for asynchronous HTTP requests
+from asgiref.sync import sync_to_async
+
 from django.shortcuts import  redirect
 from django.contrib import messages
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+import logging
 from .context_processors import user_context
 from .models import User
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -225,41 +227,61 @@ def delete_user(request, user_id):
 def capture(request):
     return render(request, 'users.html')  # Render home page with user context
 
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.hashers import make_password
+import json
+import logging
+
+logger = logging.getLogger(__name__)
+
 @csrf_exempt  # Only for testing; consider proper CSRF handling in production
 def save_face_image(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)  # Parse the JSON data
-            face_dimensions = data.get('face_dimensions')  # Get face dimensions (height, width, top, left)
+            face_dimensions = data.get('face_dimensions')  # Get face dimensions
+            landmarks = data.get('landmarks')  # Get facial landmarks
+            face_token = data.get('face_token')  # Get the face token
 
-            # Log the received face dimensions
+            # Log the received face dimensions, landmarks, and face token
             logger.info(f'Received face dimensions: {face_dimensions}')
+            logger.info(f'Received landmarks: {landmarks}')
+            logger.info(f'Received face token: {face_token}')
 
-            if not face_dimensions:
-                return JsonResponse({'status': 'error', 'message': 'Face dimensions are required.'}, status=400)
+            if not face_dimensions or not landmarks or not face_token:
+                return JsonResponse({'status': 'error', 'message': 'Face dimensions, landmarks, and face token are required.'}, status=400)
 
-            # Static user details for testing
+            # Static user details
             username = "static_username"
             email = "static@example.com"
             password = "static_password"
-            url = "http://example.com/static_url"  # Static URL
+            url = "http://example.com/static_url"  # Add static URL
 
             # Check if the user already exists
             try:
-                user = User.objects.get(username=username)
-                user.face_dimensions = face_dimensions  # Save all face dimensions
-                user.save()
+                user = User.objects.get(username=username)  # Retrieve the user
+                user.face_dimensions = {
+                    'face_rectangle': face_dimensions,
+                    'landmarks': landmarks,
+                    'face_token': face_token  # Update with face token
+                }
+                user.save()  # Save changes
                 return JsonResponse({'status': 'success', 'message': 'User updated successfully.'})
             except User.DoesNotExist:
-                # Create a new user if they don't exist
+                # Create a new user if they do not exist
                 user = User(
                     username=username,
                     email=email,
                     password=make_password(password),
-                    face_dimensions=face_dimensions,  # Save all face dimensions
-                    url=url  # Set static URL
+                    face_dimensions={
+                        'face_rectangle': face_dimensions,
+                        'landmarks': landmarks,
+                        'face_token': face_token  # Set face token
+                    },
+                    url=url,  # Set the static URL
                 )
-                user.save()  # Save new user
+                user.save()  # Save the new user
                 return JsonResponse({'status': 'success', 'message': 'User created successfully.'})
 
         except json.JSONDecodeError:
@@ -267,3 +289,54 @@ def save_face_image(request):
             return JsonResponse({'status': 'error', 'message': 'Invalid JSON.'}, status=400)
 
     return JsonResponse({'status': 'error', 'message': 'Only POST method is allowed.'}, status=400)
+
+
+@csrf_exempt  # Use with caution; consider using proper CSRF handling
+def check_user(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            face_token = data.get('face_token', None)
+
+            if face_token is None:
+                return JsonResponse({'error': 'Face token is required.'}, status=400)
+
+            # Retrieve users from the database
+            users = list(User.objects.all())  # Get users synchronously
+            best_similarity_score = 0
+            user_exists = False
+
+            with httpx.Client() as client:  # Use synchronous HTTP client
+                for user in users:
+                    # Use Face++ compare API to calculate similarity
+                    compare_response = client.post('https://api-us.faceplusplus.com/facepp/v3/compare', data={
+                        'api_key': 'LK1kVhRZWfuwuECyIZxjwDipDBIey5Y3',  # Replace with your API key
+                        'api_secret': 'QDpBathJGWwXXNXwG5Ze4jE8UfgCuX_t',  # Replace with your API secret
+                        'face_token1': face_token,
+                        'face_token2': user.face_dimensions['face_token']  # Assuming you saved the face token in the user object
+                    })
+
+                    compare_result = compare_response.json()
+                    similarity_score = compare_result.get('confidence', 0)  # Confidence score as a percentage
+
+                    if similarity_score > best_similarity_score:
+                        best_similarity_score = similarity_score
+                        user_exists = True
+
+            logger.info(
+                f"User existence check: {'exists' if user_exists else 'does not exist'}, Best similarity score: {best_similarity_score}")
+
+            return JsonResponse({
+                'exists': user_exists,
+                'similarity_score': best_similarity_score
+            })
+
+        except json.JSONDecodeError:
+            logger.error('Invalid JSON received.')
+            return JsonResponse({'error': 'Invalid JSON.'}, status=400)
+
+    return JsonResponse({'error': 'Invalid request method. Only POST is allowed.'}, status=400)
+
+@csrf_exempt  # Use with caution; consider using proper CSRF handling
+def check_page_user(request):
+    return render(request, 'userDetails.html')  # Render home page with user context
