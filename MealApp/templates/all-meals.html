@@ -25,10 +25,11 @@
                     padding: 50px;" >
                     <div class="formIaSided">
                     <h1 class="pb-2">Calorie Calculator</h1>
+
                     <form style="display: flex;
                             flex-direction: column;
                             width: 100%;
-                            line-height: 17px;" method="POST" action="">
+                            line-height: 17px;" action="{% url 'calorie_calculator'  %}" method="POST" action="">
                         {% csrf_token %}
                         <label class="pb-2" for="age">Age:</label>
                         <input style="    height: 50px; border-radius: 20px;" type="number" id="age" name="age" required><br><br>
@@ -56,23 +57,17 @@
                 <div class="picIaSide"><img style="width: 560px; border-radius: 15px;" src="{% static  'assets/img/miaouiPics/calorie_calculator_image.jpg' %}" alt=""></div>
                 </div>
                 
-                    <div id="result"></div>
+                <div id="result" style="color: white; background-color: #ffd3d3; margin-top: 20px; padding: 20px; border-radius: 10px;">
+                    {% if calories %}
+                        <h3 style="margin: 0; color: orangered;">Calorie Recommendations:</h3>
+                        <p style="margin: 10px 0 0;">{{ calories|safe }}</p>  <!-- Use 'safe' to render HTML -->
+                    {% endif %}
+                    {% if error %}
+                        <p style="color: red;">Error: {{ error }}</p>
+                    {% endif %}
+                </div>
                 
-                    <script>
-                        document.querySelector('form').addEventListener('submit', async function(event) {
-                            event.preventDefault();
-                            const formData = new FormData(this);
-                
-                            const response = await fetch('', {
-                                method: 'POST',
-                                body: formData,
-                                headers: { 'X-Requested-With': 'XMLHttpRequest' }
-                            });
-                
-                            const data = await response.json();
-                            document.getElementById('result').innerText = `Calories: ${data.calories}`;
-                        });
-                    </script>
+                </div>
                     <div>
                 </div>
             </section>

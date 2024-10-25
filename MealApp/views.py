@@ -3,7 +3,13 @@ from django.shortcuts import  render, redirect
 from .models import Meal
 from UserApp.models import User
 
-from django.http import HttpResponse
+from django.http import JsonResponse
+
+import google.generativeai as genai
+
+genai.configure(api_key="AIzaSyD6PHqbtnPOl22yrLDcPA4vEQ0YrBhih0s")
+# genai.configure(api_key=os.environ["API_KEY"])
+
 
 
 def meal_list(request):
@@ -60,3 +66,40 @@ def delete_meal(request, idMeal):
         return redirect('allMeals')  # If meal doesn't exist, redirect
     return redirect('allMeals')  # If meal doesn't exist, redirect
 
+
+
+def calorie_calculator(request):
+    if request.method == 'POST':
+        age = request.POST.get('age')
+        height = request.POST.get('height')
+        weight = request.POST.get('weight')
+        activity = request.POST.get('activity')
+
+        # Gemini API prompt
+        prompt = (
+            f"I am {age} years old, my height is {height} cm, and I weigh {weight} kg. "
+            f"My activity level is: {activity}. How many calories should I consume "
+            f"to maintain, gain muscle, or cut?"
+            f"just be straight to the point and give estamitions"
+            f"and put each info in a line , make it look professional"
+        )
+
+        try:
+            # Call Gemini API
+            model = genai.GenerativeModel("gemini-1.5-flash")
+            response = model.generate_content(prompt)
+            calories_response = response.text
+            # Assume calories_response is the string you get from the API.
+            calories_response = response.text.strip().split('\n')
+            calories_output = "<br>".join(calories_response)  # Join lines with HTML line breaks
+
+
+            # Return a JSON response to be handled by JavaScript
+             # Render the all-meals.html with the calories included in the context
+            return render(request, 'all-meals.html', {'calories': calories_output})
+
+        except Exception as e:
+            return render(request, 'all-meals.html', {'error': str(e)})
+        
+    # Render form if GET request
+    return render(request, 'all-meals.html')
