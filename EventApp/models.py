@@ -5,6 +5,7 @@ class SportEvent(Document):
     date = DateField(required=True)
     location = StringField(max_length=255, required=True)
     participants = IntField(required=True)
+    AlreadyParticipated = IntField(default=0)  # New field to track participants
     description = StringField()
     image = ImageField()
 

@@ -67,17 +67,17 @@
                             <p> <strong>description</strong> : {{ event.description }}</p>
                             <p> <strong>date</strong> : {{ event.date }}</p>
                             <p> <strong>location</strong> : {{ event.location }}</p>
-                            <p> <strong>nb place resté</strong> : {{ event.participants }}</p>
+    <p><strong>Total Max Places:</strong> {{ event.participants }}</p>
+<p><strong>Remaining Places:</strong> {{ remaining_places }}</p>
 
                            <div class="product-option">
                                 <form class="form">
                                     <div class="product-row">
-                                        <div>
-                                            <input class="product-count" type="text" value="1" name="product-count">
-                                        </div>
+                                        {% if remaining_places > 0 %}
                                         <div class="add-to-cart-btn">
-                                            <button class="xb-btn"><i class="far fa-shopping-bag"></i>participer</button>
+                                            <button disabled="false" class="xb-btn">participer</button>
                                         </div>
+                                        {% endif %}
                                     </div>
                                 </form>
                             </div>

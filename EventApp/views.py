@@ -89,7 +89,9 @@ def create_event(request):
 
 def event_detail(request, event_id):
     event = SportEvent.objects.get(id=event_id)
-    return render(request, 'event-details.html', {'event': event})
+    remaining_places = event.participants - event.AlreadyParticipated
+
+    return render(request, 'event-details.html', {'event': event,'remaining_places':remaining_places})
 
 
 def delete_event(request, idEvent):
