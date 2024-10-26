@@ -1,11 +1,94 @@
+import json
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from bson import ObjectId
-
+import torch
 from .models import SportEvent
-# Create your views here.
+from django.core.files.storage import default_storage
+import os
+from django.http import JsonResponse
+
+from PIL import Image
+from transformers import BlipProcessor, BlipForConditionalGeneration
+import requests
+
+import logging
+import base64
+from django import template
+from django.utils.safestring import mark_safe
+
+logger = logging.getLogger(__name__)
+
+# Initialize the model and processor
+processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
+model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large").to("cuda" if torch.cuda.is_available() else "cpu")
+
+register = template.Library()
+
+@register.filter
+def to_base64(image):
+    try:
+        img_str = base64.b64encode(image.read()).decode('utf-8')
+        return mark_safe(f"data:image/jpeg;base64,{img_str}")
+    except Exception as e:
+        print(f"Error encoding image to Base64: {e}")
+        return ""
+
+def generate_description(request):
+    if request.method == "POST":
+        image_file = request.FILES.get('image')
+
+        if image_file:
+            print("deeeddeddededdededededede")
+            # Load the image for processing
+            image = Image.open(image_file).convert("RGB")
+            description = ai_generate_description(image)  # Pass the image directly
+
+            return JsonResponse({'description': description})
+
+    return JsonResponse({'error': 'Invalid request'}, status=400)
 
 
+def ai_generate_description(image):
+    # Process the image and generate a description
+    text = "event of"
+    inputs = processor(image, text, return_tensors="pt").to(model.device)
+
+    # Generate caption
+    output = model.generate(**inputs)
+    caption = processor.decode(output[0], skip_special_tokens=True)
+    return caption
+
+
+def create_event(request):
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        date = request.POST.get('date')
+        location = request.POST.get('location')
+        participants = request.POST.get('participants')
+        image = request.FILES.get('image')
+
+        # You can add basic validation here if needed
+        if name and date and location and participants:
+
+            #
+            # Generate the caption
+            event = SportEvent(
+                name=name,
+                date=date,
+                location=location,
+                participants=int(participants),
+                image = image
+
+            )
+            event.save()
+            return redirect('allEvents')
+        else:
+            return HttpResponse('Please fill all fields')
+
+    return render(request, 'add-event.html')
 
 def delete_event(request, idEvent):
     if request.method == "POST":
@@ -40,29 +123,8 @@ def update_event(request, idEvent):
 
 def all_events(request):
     events = SportEvent.objects.all()
+    print(torch.cuda.is_available())  # should return True if CUDA is available
     return render(request, 'all-events.html', {'events': events})
 
 
-
-def create_event(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        date = request.POST.get('date')
-        location = request.POST.get('location')
-        participants = request.POST.get('participants')
-
-        # You can add basic validation here if needed
-        if name and date and location and participants:
-            event = SportEvent(
-                name=name,
-                date=date,
-                location=location,
-                participants=int(participants)
-            )
-            event.save()
-            return redirect('allEvents')
-        else:
-            return HttpResponse('Please fill all fields')
-
-    return render(request, 'add-event.html')
 

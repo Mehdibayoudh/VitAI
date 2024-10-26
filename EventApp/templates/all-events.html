@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block content %}
+    {% load filter%}
 
             <div class="bg_img position-botttom bottom--105 pb-70" data-background="assets/img/bg/pp_bg.png">
             <!-- popular product start -->
@@ -17,7 +18,11 @@
 <div class="col-lg-4 col-md-4 mt-20">
     <div class="popular-product-item ul_li">
         <div class="xb-item--img">
-            <a href="shop-single.html"><img src="{% static 'assets/img/shop/product_17.png'%}" alt=""></a>
+            {% if event.image %}
+                <img src="{{ event.image|to_base64 }}" alt="{{ event.name }}" width="200" height="200">
+            {% else %}
+                <p>No image available for this event.</p>
+            {% endif %}
         </div>
         <div class="xb-item--holder">
             <h3 class="xb-item--title"><a href="shop-single.html">{{ event.name }}</a></h3>

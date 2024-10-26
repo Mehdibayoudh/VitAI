@@ -15,6 +15,14 @@
 <form method="POST" class="contact-form" action="{% url 'addEvent' %}" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="row">
+<!-- Image Upload Field -->
+<div class="col-12">
+    <div class="xb-item--field">
+        <label for="image">Event Image:</label>
+        <input type="file" name="image" id="imageUpload" accept="image/*" required onchange="uploadImage(event)">
+    </div>
+</div>
+
         <!-- Event Name -->
         <div class="col-lg-6">
             <div class="xb-item--field">
@@ -36,6 +44,11 @@
                 <input type="text" name="location" placeholder="Location" required>
             </div>
         </div>
+ <div class="row">
+        <div class="col-12">
+            <label for="description">Event Description:</label>
+            <input type="text" name="description" id="description" required>  </div>
+    </div>
         <!-- Participants -->
         <div class="col-12">
             <div class="xb-item--field">
@@ -54,4 +67,42 @@
                 </div>
             </div>
         </div>
+
+
+<script>
+function uploadImage(event) {
+    const file = event.target.files[0]; // Get the uploaded file
+    if (file) {
+        const formData = new FormData(); // Create a FormData object
+        formData.append('image', file); // Append the raw file to the form data
+        fetch('{% url "generate_description" %}', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}', // Include CSRF token for security
+            },
+            body: formData, // Send the FormData object containing the image
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.description) {
+                // Update the description input field with the generated description
+                document.getElementById('description').value = data.description;
+            } else {
+                console.error('No description returned:', data);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+}
+</script>
+
+
 {% endblock %}
+
