@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Face Detection</title>
-    <style>
-        #video {
-            display: block;
-            width: 640px;
-            height: 480px;
-        }
-        #canvas {
-            display: none;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Purefit - Health Supplement Landing Page</title>
+    <link rel="stylesheet" href="{% static 'assets/css/signup.css' %}">
 </head>
-<body>
+
+
+    <!-- Sign Up -->
+    <div class="container__form ">
     <h1>Face Detection</h1>
     <button id="capture-btn">Capture Face</button>
     <video id="video" autoplay></video>
     <canvas id="canvas" width="640" height="480"></canvas>
-
+    </div>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const video = document.getElementById('video');

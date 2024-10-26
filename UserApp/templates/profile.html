@@ -1,11 +1,19 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block content %}
+<style>
+.profile-image {
+    width: 150px;  /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%;  /* Makes the image circular */
+    object-fit: cover;  /* Ensures the image fills the circle without distortion */
+}
 
+</style>
 <div class="container text-center mt-5">
     <div class="profile-container">
          {% if user.face_image %}
-        <img src="{{ user.url }}" alt="Face Image" />
+            <img src="{{ user.url }}" alt="Face Image" class="profile-image" />
         {% else %}
             <p>No image available</p>
         {% endif %}

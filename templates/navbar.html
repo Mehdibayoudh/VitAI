@@ -127,7 +127,7 @@
                               {% if user %}
                                    <form action="{% url 'logout' %}" method="post" style="display:inline;">
                                     {% csrf_token %}
-                                            <p class="message" style="display:inline; margin: 0;">Welcome, {{ user.username }}!</p>
+                                        <a href="{% url 'profile' %} " class="message" style="display:inline; margin: 0;">Welcome, {{ user.username }}!</a>
                                         <button type="submit" style="margin-left: 10px; background-color: #ff4d24; color: white; border: none; border-radius: 10%; width: 80px; height: 40px; cursor: pointer;">
                                             Logout
                                         </button>

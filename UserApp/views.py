@@ -34,20 +34,25 @@ def home(request):
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
+        email = request.POST.get('email')
         password = request.POST.get('password')
 
-        user = User.objects(username=username).first()
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return render(request, 'signup.html', {'error': 'Invalid email or password'})
 
-        if user and user.check_password(password):
+        # Check if user is active
+        if not user.is_active:
+            return render(request, 'signup.html', {'error': 'Account is inactive. Please contact support.'})
+
+        if user.check_password(password):
             request.session['user_id'] = str(user.id)  # Store the user ID in session
             return redirect('home')
         else:
-            # Authentication failed
-            return render(request, 'signup.html', {'error': 'Invalid username or password'})
+            return render(request, 'signup.html', {'error': 'Invalid email or password'})
 
     return render(request, 'signup.html')
-
 
 def logout_view(request):
     request.session.flush()  # Clear the session
