@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    {% load filter%}
+    <main>
+        <!-- breadcrumb start -->
+        <section class="breadcrumb position-bottom bg_img" data-background="assets/img/bg/page_title.png">
+            <div class="container">
+                <div class="breadcrumb__content text-center">
+                    <h2 class="breadcrumb__title">Shop Details</h2>
+                    <ul class="breadcrumb__list clearfix">
+                        <li class="breadcrumb-item"><a href="index.html">Purefit</a></li>
+                        <li class="breadcrumb-item">Shop Details</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- breadcrumb end -->
+
+        <!-- shop single start -->
+        <section class="shop-single-section pt-115 pb-385">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-single-wrap mb-30">
+                            <div class="product_details_img ">
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane show active" id="home2" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="pl_thumb">
+            {% if event.image %}
+                <img src="{{ event.image|to_base64 }}" alt="{{ event.name }}" style="width: 300px;height: 300px">
+            {% else %}
+                <p>No image available for this event.</p>
+            {% endif %}                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="pl_thumb">
+                                            <img src="assets/img/shop/product-single2.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                        <div class="pl_thumb">
+                                            <img src="assets/img/shop/product-single3.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="profile2" role="tabpanel" aria-labelledby="profile-tab3">
+                                        <div class="pl_thumb">
+                                            <img src="assets/img/shop/product-single4.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 product-details-col">
+                        <div class="product-details mb-30">
+                            <h2>{{ event.name }}</h2>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(2 Customer review)</span>
+                            </div>
+                            <p> <strong>description</strong> : {{ event.description }}</p>
+                            <p> <strong>date</strong> : {{ event.date }}</p>
+                            <p> <strong>location</strong> : {{ event.location }}</p>
+                            <p> <strong>nb place resté</strong> : {{ event.participants }}</p>
+
+                           <div class="product-option">
+                                <form class="form">
+                                    <div class="product-row">
+                                        <div>
+                                            <input class="product-count" type="text" value="1" name="product-count">
+                                        </div>
+                                        <div class="add-to-cart-btn">
+                                            <button class="xb-btn"><i class="far fa-shopping-bag"></i>participer</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+
+
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+            </div> <!-- end of container -->
+        </section>
+        <!-- shop single start -->
+
+    </main>
+
+
+
+{% endblock %}

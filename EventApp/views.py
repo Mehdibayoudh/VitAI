@@ -26,14 +26,6 @@ model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-capt
 
 register = template.Library()
 
-@register.filter
-def to_base64(image):
-    try:
-        img_str = base64.b64encode(image.read()).decode('utf-8')
-        return mark_safe(f"data:image/jpeg;base64,{img_str}")
-    except Exception as e:
-        print(f"Error encoding image to Base64: {e}")
-        return ""
 
 def generate_description(request):
     if request.method == "POST":
@@ -53,6 +45,7 @@ def generate_description(request):
 def ai_generate_description(image):
     # Process the image and generate a description
     text = "event of"
+    #place = "the location of the event is :"
     inputs = processor(image, text, return_tensors="pt").to(model.device)
 
     # Generate caption
@@ -68,6 +61,7 @@ def create_event(request):
         date = request.POST.get('date')
         location = request.POST.get('location')
         participants = request.POST.get('participants')
+        description = request.POST.get('description')
         image = request.FILES.get('image')
 
         # You can add basic validation here if needed
@@ -80,6 +74,7 @@ def create_event(request):
                 date=date,
                 location=location,
                 participants=int(participants),
+                description=description,
                 image = image
 
             )
@@ -89,6 +84,13 @@ def create_event(request):
             return HttpResponse('Please fill all fields')
 
     return render(request, 'add-event.html')
+
+
+
+def event_detail(request, event_id):
+    event = SportEvent.objects.get(id=event_id)
+    return render(request, 'event-details.html', {'event': event})
+
 
 def delete_event(request, idEvent):
     if request.method == "POST":

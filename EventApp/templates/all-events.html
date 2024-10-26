@@ -25,7 +25,7 @@
             {% endif %}
         </div>
         <div class="xb-item--holder">
-            <h3 class="xb-item--title"><a href="shop-single.html">{{ event.name }}</a></h3>
+            <h3 class="xb-item--title"><a href="{% url 'event_detail' event.id %}">{{ event.name }}</a></h3>
             <div class="xb-item--rating-inner ul_li">
                 <ul class="xb-item--rating ul_li">
                     <li><img src="assets/img/icon/star.png" alt=""></li>
