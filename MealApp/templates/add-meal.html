@@ -4,11 +4,20 @@
         <div style="margin-top: 400px" class="container">
 
             <div id="contact" class="contact pb-100">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="xb-contact contact-mt--255">
-                            <div class="contact-title mb-35">
-                                <span><img src="assets/img/icon/directbox-notif.svg" alt="">add Your Meals For Today ! </span>
+                <div style="border: solid thin orangered;
+                border-radius: 15px;
+                padding: 50px;
+                " class="row">
+                    <div class="col-lg-6">
+                        <div style="border: solid thin white;
+                        border-radius: 15px;
+                        background-color: transparent;
+                        border-color: #ffa50045;" class="xb-contact ">
+                            <div  class="contact-title mb-35">
+                                <span style="color: white;
+                                font-weight: bold;
+                                font-size: 24px;
+                                "><img src="assets/img/icon/directbox-notif.svg" alt="">add Your Meals For Today ! </span>
                                 <!-- <h3>Do you have questions or went more <br> information?</h3> -->
                             </div>
 
@@ -19,13 +28,13 @@
         <div class="col-lg-6">
             <div class="xb-item--field">
                 <!-- <span><img src="{% static 'assets/img/icon/c_user.svg' %}" alt=""></span> -->
-                <input type="text" name="name" placeholder="Meal Name" required>
+                <input style="border-radius: 15px;" type="text" name="name" placeholder="Meal Name" required>
             </div>
         </div>
         <!-- meal_type -->
         <div class="col-lg-6">
             <div class="xb-item--field">
-                <select name="meal_type" required>
+                <select style="background-color: white; border-radius: 15px;" name="meal_type" required>
                     <option value="breakfast">Breakfast</option>
                     <option value="lunch">Lunch</option>
                     <option value="dinner">Dinner</option>
@@ -39,7 +48,6 @@
                 <!-- <span><img src="{% static 'assets/img/icon/c_location.svg' %}" alt=""></span> -->
                 <input style="width: 100%;
                 height: 60px;
-                border-radius: 0;
                 padding: 15px 20px;
                 border: 0;
                 -webkit-transition: 0.3s;
@@ -48,6 +56,7 @@
                 color: var(--color-black);
                 font-weight: 500;
                 margin-top: 20px;
+                border-radius: 15px;
                 border: 1px solid #F1F1F1;" type="number" name="calories" placeholder="calories" required>
             </div>
         </div>
@@ -57,7 +66,6 @@
                 <!-- <span><img src="{% static 'assets/img/icon/c_location.svg' %}" alt=""></span> -->
                 <input style="width: 100%;
                 height: 60px;
-                border-radius: 0;
                 padding: 15px 20px;
                 border: 0;
                 -webkit-transition: 0.3s;
@@ -66,6 +74,7 @@
                 color: var(--color-black);
                 font-weight: 500;
                 margin-top: 20px;
+                border-radius: 15px;
                 border: 1px solid #F1F1F1;" type="number" name="proteins" placeholder="proteins" required>
             </div>
         </div>
@@ -75,7 +84,7 @@
                 <!-- <span><img src="{% static 'assets/img/icon/c_location.svg' %}" alt=""></span> -->
                 <input style="width: 100%;
                 height: 60px;
-                border-radius: 0;
+                border-radius: 15px;
                 padding: 15px 20px;
                 border: 0;
                 -webkit-transition: 0.3s;
@@ -93,7 +102,7 @@
                 <!-- <span><img src="{% static 'assets/img/icon/c_location.svg' %}" alt=""></span> -->
                 <input style="width: 100%;
                 height: 60px;
-                border-radius: 0;
+                border-radius: 15px;
                 padding: 15px 20px;
                 border: 0;
                 -webkit-transition: 0.3s;
@@ -108,12 +117,18 @@
         
         <!-- Submit Button -->
         <div class="col-12 mt-20 ">
-            <button class="thm-btn thm-btn--black" type="submit">Add Meal</button>
+            <button style="    color: white;
+                        background-color: orangered;
+                        height: 50px;
+                        border-radius: 20px;
+                        width: 100%;
+                        " type="submit">Add Meal</button>
         </div>
     </div>
 </form>
                         </div>
                     </div>
+                    <div class="col-lg-6"><img style="width: 539px; border-radius: 15px;" src="{% static  'assets/img/miaouiPics/img2.jpg' %}" alt=""></div>
                 </div>
             </div>
         </div>
