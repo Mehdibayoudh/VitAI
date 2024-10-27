@@ -30,6 +30,8 @@ urlpatterns = [
 
     path('event/', include('EventApp.urls')),
 
+    path('meal/', include('MealApp.urls')),
+
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
