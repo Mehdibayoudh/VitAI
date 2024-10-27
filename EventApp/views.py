@@ -32,7 +32,6 @@ def generate_description(request):
         image_file = request.FILES.get('image')
 
         if image_file:
-            print("deeeddeddededdededededede")
             # Load the image for processing
             image = Image.open(image_file).convert("RGB")
             description = ai_generate_description(image)  # Pass the image directly
@@ -63,7 +62,7 @@ def create_event(request):
         participants = request.POST.get('participants')
         description = request.POST.get('description')
         image = request.FILES.get('image')
-        owner_id = "6713f6836794bd0178dc02dd"  # Assuming you have user authentication set up
+        owner_id = "6713f6836794bd0178dc02dd"
 
         # You can add basic validation here if needed
         if name and date and location and participants:
@@ -94,7 +93,8 @@ def event_detail(request, event_id):
     event = SportEvent.objects.get(id=event_id)
     remaining_places = event.participants - event.AlreadyParticipated
 
-    return render(request, 'event-details.html', {'event': event,'remaining_places':remaining_places})
+
+    return render(request, 'event-details.html', {'event': event,'remaining_places':remaining_places,'userId':"6713f6836794bd0178dc02dd"})
 
 
 def delete_event(request, idEvent):
@@ -134,4 +134,15 @@ def all_events(request):
     return render(request, 'all-events.html', {'events': events,'userId':"6713f6836794bd0178dc02dd"})
 
 
+
+def participate_in_event(request, event_id):
+    event = SportEvent.objects.get(id=event_id)
+    user_id = "6713f6836794bd0178dc02dd"  # Assuming the user is authenticated
+
+    if user_id not in event.participants_list:
+        event.participants_list.append(user_id)
+        event.AlreadyParticipated += 1
+        event.save()
+
+    return redirect('event_detail', event_id=event_id)  # Redirect to the event details page
 

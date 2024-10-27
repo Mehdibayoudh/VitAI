@@ -74,16 +74,15 @@
                                 <form class="form">
                                     <div class="product-row">
                                         {% if remaining_places > 0 %}
+                                        {% if userId not in event.participants_list %}
                                         <div class="add-to-cart-btn">
-                                            <button disabled="false" class="xb-btn">participer</button>
+                                            <a href="{% url 'participate_in_event' event.id %}" class="xb-btn">participer</a>
                                         </div>
                                         {% endif %}
+                                     {% endif %}
                                     </div>
                                 </form>
                             </div>
-
-
-
                         </div>
                     </div> <!-- end col -->
                 </div> <!-- end row -->
