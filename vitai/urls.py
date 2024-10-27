@@ -22,8 +22,8 @@ urlpatterns = [
     path('', Userviews.home, name='home'),
     path('users/', include('UserApp.urls')),
     path('admin/', admin.site.urls),
-
     path('event/', include('EventApp.urls')),
+    path('mental/', include('MentalApp.urls')),
 
 
 

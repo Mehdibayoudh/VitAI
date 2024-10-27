@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Your Mood</title>
+</head>
+<body>
+    <h1>How Do You Feel?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    {% if recommendations %}
+        <h2>Recommendations:</h2>
+        <ul>
+            {% for recommendation in recommendations %}
+                <li>{{ recommendation.recommendation }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
