@@ -64,6 +64,33 @@
 <script src="{% static 'assets/js/scrollspy.js' %}"></script>
 <script src="{% static 'assets/js/main.js' %}"></script>
 
+<script>
+    function confirmDelete(pk) {
+        if (confirm("Are you sure you want to delete this exercise?")) {
+            fetch(`/exercises/delete/${pk}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}' // Include CSRF token for security
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const messageDiv = document.getElementById('message');
+                if (data.success) {
+                    messageDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
+                    // Optionally, remove the exercise from the page
+                    location.reload(); // Refresh the page to show updated list
+                } else {
+                    messageDiv.innerHTML = `<p style="color: red;">${data.message}</p>`;
+                }
+            })
+            .catch(error => {
+                const messageDiv = document.getElementById('message');
+                messageDiv.innerHTML = `<p style="color: red;">An error occurred. Please try again.</p>`;
+            });
+        }
+    }
+</script>
 </body>
 
 </html>

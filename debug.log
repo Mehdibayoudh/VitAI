@@ -259,3 +259,49 @@ Received face dimensions: {'top': 215, 'left': 252, 'width': 130, 'height': 130}
 Received landmarks: {'contour_chin': {'x': 316, 'y': 344}, 'contour_left1': {'x': 259, 'y': 243}, 'contour_left2': {'x': 258, 'y': 258}, 'contour_left3': {'x': 258, 'y': 272}, 'contour_left4': {'x': 259, 'y': 287}, 'contour_left5': {'x': 262, 'y': 301}, 'contour_left6': {'x': 267, 'y': 315}, 'contour_left7': {'x': 276, 'y': 326}, 'contour_left8': {'x': 287, 'y': 336}, 'contour_left9': {'x': 300, 'y': 342}, 'contour_right1': {'x': 375, 'y': 242}, 'contour_right2': {'x': 376, 'y': 256}, 'contour_right3': {'x': 375, 'y': 271}, 'contour_right4': {'x': 373, 'y': 285}, 'contour_right5': {'x': 370, 'y': 300}, 'contour_right6': {'x': 364, 'y': 313}, 'contour_right7': {'x': 356, 'y': 325}, 'contour_right8': {'x': 345, 'y': 334}, 'contour_right9': {'x': 332, 'y': 342}, 'left_eye_bottom': {'x': 285, 'y': 243}, 'left_eye_center': {'x': 285, 'y': 240}, 'left_eye_left_corner': {'x': 274, 'y': 241}, 'left_eye_lower_left_quarter': {'x': 279, 'y': 243}, 'left_eye_lower_right_quarter': {'x': 291, 'y': 242}, 'left_eye_pupil': {'x': 285, 'y': 239}, 'left_eye_right_corner': {'x': 297, 'y': 240}, 'left_eye_top': {'x': 285, 'y': 235}, 'left_eye_upper_left_quarter': {'x': 279, 'y': 237}, 'left_eye_upper_right_quarter': {'x': 291, 'y': 236}, 'left_eyebrow_left_corner': {'x': 266, 'y': 226}, 'left_eyebrow_lower_left_quarter': {'x': 274, 'y': 226}, 'left_eyebrow_lower_middle': {'x': 283, 'y': 224}, 'left_eyebrow_lower_right_quarter': {'x': 292, 'y': 224}, 'left_eyebrow_right_corner': {'x': 301, 'y': 222}, 'left_eyebrow_upper_left_quarter': {'x': 273, 'y': 220}, 'left_eyebrow_upper_middle': {'x': 282, 'y': 217}, 'left_eyebrow_upper_right_quarter': {'x': 292, 'y': 218}, 'mouth_left_corner': {'x': 293, 'y': 300}, 'mouth_lower_lip_bottom': {'x': 315, 'y': 311}, 'mouth_lower_lip_left_contour1': {'x': 304, 'y': 301}, 'mouth_lower_lip_left_contour2': {'x': 298, 'y': 305}, 'mouth_lower_lip_left_contour3': {'x': 306, 'y': 309}, 'mouth_lower_lip_right_contour1': {'x': 325, 'y': 301}, 'mouth_lower_lip_right_contour2': {'x': 331, 'y': 305}, 'mouth_lower_lip_right_contour3': {'x': 324, 'y': 309}, 'mouth_lower_lip_top': {'x': 315, 'y': 302}, 'mouth_right_corner': {'x': 336, 'y': 300}, 'mouth_upper_lip_bottom': {'x': 315, 'y': 295}, 'mouth_upper_lip_left_contour1': {'x': 309, 'y': 287}, 'mouth_upper_lip_left_contour2': {'x': 299, 'y': 292}, 'mouth_upper_lip_left_contour3': {'x': 304, 'y': 295}, 'mouth_upper_lip_right_contour1': {'x': 321, 'y': 287}, 'mouth_upper_lip_right_contour2': {'x': 330, 'y': 292}, 'mouth_upper_lip_right_contour3': {'x': 325, 'y': 296}, 'mouth_upper_lip_top': {'x': 315, 'y': 289}, 'nose_contour_left1': {'x': 305, 'y': 241}, 'nose_contour_left2': {'x': 300, 'y': 263}, 'nose_contour_left3': {'x': 305, 'y': 275}, 'nose_contour_lower_middle': {'x': 315, 'y': 277}, 'nose_contour_right1': {'x': 325, 'y': 241}, 'nose_contour_right2': {'x': 329, 'y': 262}, 'nose_contour_right3': {'x': 324, 'y': 275}, 'nose_left': {'x': 296, 'y': 272}, 'nose_right': {'x': 332, 'y': 271}, 'nose_tip': {'x': 315, 'y': 265}, 'right_eye_bottom': {'x': 346, 'y': 243}, 'right_eye_center': {'x': 346, 'y': 240}, 'right_eye_left_corner': {'x': 335, 'y': 240}, 'right_eye_lower_left_quarter': {'x': 340, 'y': 242}, 'right_eye_lower_right_quarter': {'x': 352, 'y': 242}, 'right_eye_pupil': {'x': 346, 'y': 239}, 'right_eye_right_corner': {'x': 357, 'y': 240}, 'right_eye_top': {'x': 346, 'y': 235}, 'right_eye_upper_left_quarter': {'x': 340, 'y': 236}, 'right_eye_upper_right_quarter': {'x': 352, 'y': 237}, 'right_eyebrow_left_corner': {'x': 329, 'y': 221}, 'right_eyebrow_lower_left_quarter': {'x': 339, 'y': 222}, 'right_eyebrow_lower_middle': {'x': 348, 'y': 222}, 'right_eyebrow_lower_right_quarter': {'x': 358, 'y': 222}, 'right_eyebrow_right_corner': {'x': 366, 'y': 223}, 'right_eyebrow_upper_left_quarter': {'x': 338, 'y': 216}, 'right_eyebrow_upper_middle': {'x': 348, 'y': 214}, 'right_eyebrow_upper_right_quarter': {'x': 359, 'y': 216}}
 Received face token: b7afe953113761e7acd108cf2b10249e
 Received user ID: 671c1a6169ec199bdc81fe57
+Error sending email: [WinError 10061] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée
+Internal Server Error: /users/signup
+Traceback (most recent call last):
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\mongoengine\document.py", line 448, in save
+    object_id = self._save_create(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\mongoengine\document.py", line 515, in _save_create
+    object_id = wc_collection.insert_one(doc).inserted_id
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\collection.py", line 891, in insert_one
+    self._insert_one(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\collection.py", line 831, in _insert_one
+    self._database.client._retryable_write(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 1898, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk, operation, operation_id)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 1784, in _retry_with_session
+    return self._retry_internal(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 1830, in _retry_internal
+    ).run()
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 2554, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 2676, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\collection.py", line 829, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\helpers_shared.py", line 285, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\helpers_shared.py", line 255, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }', 'keyPattern': {'username': 1}, 'keyValue': {'username': 'safa'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\UserApp\views.py", line 80, in signup
+    user, file_url = create_user(username, email, password, face_image)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\UserApp\views.py", line 129, in create_user
+    user.save()
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\mongoengine\document.py", line 473, in save
+    raise NotUniqueError(message % err)
+mongoengine.errors.NotUniqueError: Tried to save duplicate unique keys (E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }', 'keyPattern': {'username': 1}, 'keyValue': {'username': 'safa'}})
+"POST /users/signup HTTP/1.1" 500 158767
