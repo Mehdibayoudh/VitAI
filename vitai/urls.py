@@ -25,6 +25,8 @@ urlpatterns = [
     path('event/', include('EventApp.urls')),
     path('mental/', include('MentalApp.urls')),
 
+    path('meal/', include('MealApp.urls')),
+
 
 
 ]

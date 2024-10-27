@@ -1,0 +1,177 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+            <div class="bg_img position-botttom bottom--105 pb-70" data-background="assets/img/bg/pp_bg.png">
+            
+
+            <!-- AI Calories And Macros Calculator -->
+            <section class="popular-product pt-120 pb-120">
+                <div class="container">
+                    <div class="sec-title text-center mb-30">
+                        <div style="display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 20px;">
+                        <h2 class="title">Find Out Your Daily Calories Intake !</h2>
+                        </div>
+                    </div>
+                    <div style="display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: space-evenly;
+                    border: solid thin white;
+                    border-radius: 15px;
+                    padding: 50px;" >
+                    <div class="formIaSided">
+                    <h1 class="pb-2">Calorie Calculator</h1>
+
+                    <form style="display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            line-height: 17px;" action="{% url 'calorie_calculator'  %}" method="POST" action="">
+                        {% csrf_token %}
+                        <label class="pb-2" for="age">Age:</label>
+                        <input style="    height: 50px; border-radius: 20px;" type="number" id="age" name="age" required><br><br>
+                
+                        <label class="pb-2" for="height">Height (cm):</label>
+                        <input style="    height: 50px; border-radius: 20px;" type="number" id="height" name="height" required><br><br>
+                
+                        <label class="pb-2" for="weight">Weight (kg):</label>
+                        <input style="    height: 50px; border-radius: 20px;" type="number" id="weight" name="weight" required><br><br>
+                
+                        <label class="pb-2" for="activity">Activity Level:</label>
+                        <select style="color: orangered; font-weight: bold ;border-radius: 20px; border-color: orangered;" id="activity" name="activity" required>
+                            <option value="sedentary">Sedentary (little to no exercise)</option>
+                            <option value="light">Light (1-2 workouts per week)</option>
+                            <option value="moderate">Moderate (3-5 workouts per week)</option>
+                            <option value="active">Active (6-7 workouts per week)</option>
+                        </select><br><br>
+                
+                        <button style="    color: white;
+                        background-color: orangered;
+                        height: 50px;
+                        border-radius: 20px;" type="submit">Calculate Calories</button>
+                    </form>
+                </div>
+                <div class="picIaSide"><img style="width: 560px; border-radius: 15px;" src="{% static  'assets/img/miaouiPics/calorie_calculator_image.jpg' %}" alt=""></div>
+                </div>
+                
+                <div id="result" style="    color: white;
+                background-color: #000000;
+                margin-top: 20px;
+                padding: 20px;
+                border-radius: 10px;
+                border: solid thin white;">
+                    {% if calories %}
+                        <h3 style="margin: 0; color: orangered;">Calorie Recommendations:</h3>
+                        <p class="title" style="margin: 10px 0 0;">{{ calories|safe }}</p>  <!-- Use 'safe' to render HTML -->
+                    {% endif %}
+                    {% if error %}
+                        <p style="color: red;">Error: {{ error }}</p>
+                    {% endif %}
+                </div>
+                
+                </div>
+                    <div>
+                </div>
+            </section>
+            <!-- popular product end -->
+
+
+
+
+
+
+            <!-- Creat and see ur daily meals -->
+            <section class="popular-product pt-120 pb-120">
+                <div class="container">
+                    <div class="sec-title text-center mb-30">
+                        <div style="display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 20px;">
+                        <h2 class="title">Your Meals for Today</h2>
+                        <a href="addMeal" style="text-decoration: none;">
+                        <button style="font-size: medium;
+                        font-weight: bold;
+                        color: white;
+                        padding: 5px;
+                        background-color: orangered;
+                        border-radius: 10px;
+                        cursor: pointer;">Add Meal &plus;</button>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for meal in meals %}
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div style="display: flex;
+                                        flex-direction: column;
+                                        background-color: white;
+                                        padding: 25px;
+                                        align-items: center;
+                                        border-radius: 10px;
+                                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                    <!-- Delete Button -->
+                                    <form action="{% url 'delete_meal' meal.id %}" method="POST" style="display:inline;">
+                                        <button style="position: relative;
+                                            top: -6px;
+                                            right: -418%;
+                                        background-color: #ffd3d3;
+                                        color: #2d0000;
+                                        border: none;
+                                        border-radius: 50%;
+                                        width: 30px;
+                                        height: 30px;
+                                        font-size: 16px;
+                                        cursor: pointer;" type="submit" value="Supprimer">&times;</button>
+                                        {% csrf_token %}
+                                    </form>
+
+
+                                    <!-- update Button -->
+                                    <form action="{% url 'update_meal' meal.id %}" method="POST" style="display:inline;">
+                                        <button style="position: relative;
+                                               top: -35px;
+                                               right: -541%;
+                                        background-color: #ffd3d3;
+                                        color: #2d0000;
+                                        border: none;
+                                        border-radius: 50%;
+                                        width: 30px;
+                                        height: 30px;
+                                        font-size: 16px;
+                                        cursor: pointer;" type="submit" value="Supprimer">&#8635;</button>
+                                        {% csrf_token %}
+                                    </form>
+                                <h1 style="color: orangered; font-weight: bold;">{{ meal.meal_type }}</h1>
+                                <p style="font-size: x-large;
+                                color: #000000ad;
+                                font-weight: 900;
+                                padding-bottom: 15px;">{{ meal.name }}</p>
+                                <p>Calories : {{ meal.calories }} cal</p>
+                                <p>Proteins : {{ meal.proteins }} cal</p>
+                                <p>Carbs : {{ meal.carbs }} cal</p>
+                                <p>Fats : {{ meal.fats }} cal</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                    <p style="    border: solid thin #ffffff8f;
+                    border-radius: 15px;
+                    padding: 25px;
+                    text-align: center;
+                    color: white;">Total Calories Consumed Today is: {{ total_calories }} cal</p>
+                    </div>
+                </div>
+            </section>
+            <!-- popular product end -->
+
+        </div>
+
+
+
+{% endblock %}
