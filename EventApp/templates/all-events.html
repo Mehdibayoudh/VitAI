@@ -38,22 +38,22 @@
             </div>
             <div class="xb-item--action ul_li_between">
                 <h5 class="xb-item--price">{{ event.date }}</h5>
-                <a class="xb-item--cart" href="shop-single.html"><img src="assets/img/icon/bag.svg" alt=""></a>
 
 
+ {% if event.owner == userId %}
 
                 <!-- Delete Form -->
-    <form action="{% url 'delete_event' event.id %}" method="POST" style="display:inline;">
-        <input class="xb-item--badge" type="submit" value="Supprimer">
+    <form class="mt-3" action="{% url 'delete_event' event.id %}" method="POST" style="display:inline;">
+        <input  class="btn btn-danger" type="submit" value="Supprimer">
         {% csrf_token %}
     </form>
 
                                 <!-- Delete Form -->
-    <form action="{% url 'update_event' event.id %}" method="POST" style="display:inline;">
-        <input class="xb-item--cart" type="submit" value="edit">
+    <form class="mt-3" action="{% url 'update_event' event.id %}" method="POST" style="display:inline;">
+        <input class="btn btn-warning" type="submit" value="edit">
         {% csrf_token %}
     </form>
-
+ {% endif %}
 
             </div>
         </div>

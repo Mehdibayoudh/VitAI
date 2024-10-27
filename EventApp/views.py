@@ -63,6 +63,7 @@ def create_event(request):
         participants = request.POST.get('participants')
         description = request.POST.get('description')
         image = request.FILES.get('image')
+        owner_id = "6713f6836794bd0178dc02dd"  # Assuming you have user authentication set up
 
         # You can add basic validation here if needed
         if name and date and location and participants:
@@ -75,7 +76,9 @@ def create_event(request):
                 location=location,
                 participants=int(participants),
                 description=description,
-                image = image
+                image = image,
+                owner=owner_id
+
 
             )
             event.save()
@@ -128,7 +131,7 @@ def update_event(request, idEvent):
 def all_events(request):
     events = SportEvent.objects.all()
     print(torch.cuda.is_available())  # should return True if CUDA is available
-    return render(request, 'all-events.html', {'events': events})
+    return render(request, 'all-events.html', {'events': events,'userId':"6713f6836794bd0178dc02dd"})
 
 
 
