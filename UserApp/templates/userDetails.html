@@ -1,0 +1,73 @@
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Purefit - Health Supplement Landing Page</title>
+    <link rel="stylesheet" href="{% static 'assets/css/signup.css' %}">
+</head>
+
+
+    <!-- Sign Up -->
+    <div class="container__form ">
+    <h1>Face Detection</h1>
+    <button id="capture-btn">Capture Face</button>
+    <video id="video" autoplay></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+
+        document.getElementById('capture-btn').addEventListener('click', async () => {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            video.srcObject = stream;
+
+            setTimeout(async () => {
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const frame = canvas.toDataURL('image/jpeg');
+
+                const response = await fetch('https://api-us.faceplusplus.com/facepp/v3/detect', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({
+                        api_key: 'LK1kVhRZWfuwuECyIZxjwDipDBIey5Y3',
+                        api_secret: 'QDpBathJGWwXXNXwG5Ze4jE8UfgCuX_t',
+                        image_base64: frame.split(',')[1],
+                        return_landmark: 1
+                    }),
+                });
+
+                const result = await response.json();
+
+                if (result.faces && result.faces.length > 0) {
+                    const faceToken = result.faces[0].face_token;
+
+                    // Check if the user exists and should redirect
+                    const checkResponse = await fetch('/users/check_user/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ face_token: faceToken }),
+                    });
+
+                    const checkResult = await checkResponse.json();
+                    if (checkResult.redirect) {
+                        window.location.href = '/';  // Redirect if backend indicates to do so
+                    } else {
+                        console.log('No match found, staying on the current page.');
+                    }
+                }
+
+                // Stop the video stream
+                stream.getTracks().forEach(track => track.stop());
+            }, 1000); // Capture after 1 second
+        });
+    });
+</script>
+
+</body>
+</html>

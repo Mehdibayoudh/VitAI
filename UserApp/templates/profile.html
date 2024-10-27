@@ -1,0 +1,103 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<style>
+.profile-image {
+    width: 150px;  /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%;  /* Makes the image circular */
+    object-fit: cover;  /* Ensures the image fills the circle without distortion */
+}
+
+</style>
+<div class="container text-center mt-5">
+    <div class="profile-container">
+         {% if user.face_image %}
+            <img src="{{ user.url }}" alt="Face Image" class="profile-image" />
+        {% else %}
+            <p>No image available</p>
+        {% endif %}
+
+        <h2 id="username">{{ user.username }}</h2>
+
+        <!-- Edit Input Field -->
+        <div id="edit-container" style="display: none;">
+            <input type="text" id="edit-username" placeholder="Edit Username" class="form-control mb-2" value="{{ user.username }}">
+            <button class="btn btn-success" onclick="saveChanges()">Confirm</button>
+            <button class="btn btn-secondary" onclick="cancelEdit()">Cancel</button>
+        </div>
+
+        <div class="buttons" id="button-container">
+            <button class="btn btn-warning me-2" onclick="toggleEdit()">Edit</button>
+           <form action="{% url 'delete_user' user.id %}" method="POST" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-light" onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">Delete</button>
+           </form>
+            <form action="{% url 'capture' %}" method="POST" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-light" >Add Face Scan</button>
+           </form>
+      </div>
+    </div>
+</div>
+
+<style>
+    .profile-container {
+        position: relative; /* Make it a positioned element */
+        padding-bottom: 100px; /* Ensure enough space for the buttons */
+    }
+
+    .buttons {
+        position: absolute; /* Position buttons absolutely */
+        bottom: 0; /* Align buttons to the bottom */
+        left: 50%;
+        transform: translateX(-50%); /* Center the buttons horizontally */
+    }
+</style>
+
+<script>
+    function toggleEdit() {
+        const editContainer = document.getElementById('edit-container');
+        const buttonContainer = document.getElementById('button-container');
+
+        // Check current state to toggle
+        if (editContainer.style.display === 'none') {
+            editContainer.style.display = 'block'; // Show edit input
+            buttonContainer.style.display = 'none'; // Hide edit and delete buttons
+        } else {
+            editContainer.style.display = 'none'; // Hide edit input
+            buttonContainer.style.display = 'flex'; // Show edit and delete buttons
+        }
+    }
+
+    function saveChanges() {
+        const username = document.getElementById('edit-username').value;
+
+        // Make an AJAX request to update the username
+        fetch("{% url 'update_username' user.id %}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'  // Include CSRF token
+            },
+            body: JSON.stringify({ username: username })
+        })
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('username').innerText = username; // Update displayed username
+                toggleEdit(); // Hide edit form after saving
+            } else {
+                alert("Failed to update username. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    function cancelEdit() {
+        toggleEdit(); // Hide edit form without saving
+    }
+</script>
+
+{% endblock %}

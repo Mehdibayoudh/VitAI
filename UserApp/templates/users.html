@@ -1,0 +1,84 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    <div id="user-data" data-user-id="{{ user.id }}"></div>
+
+    <h1>Face Detection</h1>
+    <button id="capture-btn">Capture Face</button>
+    <div id="result"></div>
+    <video id="video" autoplay></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+<script>
+    // Get references to the video and canvas elements
+    const userId = document.getElementById('user-data').dataset.userId;
+
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');  // Get the 2D drawing context
+    const resultDiv = document.getElementById('result'); // Reference to the result div
+    let stream;
+
+    document.getElementById('capture-btn').addEventListener('click', async () => {
+        // Open camera
+        stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+
+        setTimeout(async () => {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);  // Use the context to draw the video frame
+            const frame = canvas.toDataURL('image/jpeg');
+
+            // Face++ API request to detect face and get face_token
+            const detectResponse = await fetch('https://api-us.faceplusplus.com/facepp/v3/detect', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    api_key: 'LK1kVhRZWfuwuECyIZxjwDipDBIey5Y3',
+                    api_secret: 'QDpBathJGWwXXNXwG5Ze4jE8UfgCuX_t',
+                    image_base64: frame.split(',')[1],
+                    return_landmark: 1
+                }),
+            });
+
+            const detectResult = await detectResponse.json();
+            console.log('Face++ detect API response:', detectResult);  // Log the detect response
+
+            if (detectResult.faces && detectResult.faces.length > 0) {
+                const face = detectResult.faces[0];
+                const faceToken = face.face_token;
+                const faceDimensions = face.face_rectangle;
+
+                // Send the data to Django
+                const saveResponse = await fetch('/users/save_face_image/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        face_dimensions: faceDimensions,
+                        landmarks: face.landmark || null,
+                        face_token: faceToken,  // Send the retrieved face token
+                        user: userId  // Use the user ID from the data attribute
+                    }),
+                });
+
+                // Handle save response
+                const saveResult = await saveResponse.json();
+                if (saveResult.status === 'success') {
+                    resultDiv.innerText += ' Face data and token saved successfully!';
+                } else {
+                    resultDiv.innerText += ' Error saving face data.';
+                }
+            } else {
+                resultDiv.innerText = 'No face detected.';
+            }
+
+            // Stop the video stream and disable the capture button
+            stream.getTracks().forEach(track => track.stop());
+            document.getElementById('capture-btn').disabled = true;
+        }, 1000); // Capture after 1000ms (1 second)
+    });
+</script>
+{% endblock %}

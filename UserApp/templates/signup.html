@@ -1,0 +1,80 @@
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Purefit - Health Supplement Landing Page</title>
+    <link rel="stylesheet" href="{% static 'assets/css/signup.css' %}">
+</head>
+
+<div class="container right-panel-active">
+    <!-- Sign Up -->
+    <div class="container__form container--signup">
+        <form action="{% url 'signup' %}" method="POST" class="form" id="form1" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2 class="form__title">Sign Up</h2>
+            <input name="username" type="text" placeholder="User" class="input" required />
+            <input name="email" type="email" placeholder="Email" class="input" required />
+            <input name="password" type="password" placeholder="Password" class="input" required />
+            <input name="checkPassword" type="password" placeholder="Confirm Password" class="input" required />
+            <input name="face_image" type="file" class="input" accept="image/*" required /> <!-- Added face image input -->
+
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+    </div>
+
+    <!-- Sign In -->
+    <div class="container__form container--signin">
+        <form action="{% url 'loginuser' %}" method="POST" class="form" id="form2" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2 class="form__title">Sign In</h2>
+            <input name="email" type="email" placeholder="Email" class="input" required />
+            <input name="password" type="password" placeholder="Password" class="input" required />
+            <a href="#" class="link">Forgot your password?</a>
+
+            <button type="submit" class="btn">Sign In</button>
+            <a href="{% url 'check_page_user' %}" class="link">face login</a>
+        </form>
+    </div>
+
+
+    <!-- Overlay -->
+    <div class="container__overlay">
+        <div class="overlay">
+            <div class="overlay__panel overlay--left">
+                <button class="btn" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay__panel overlay--right">
+                <button class="btn" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const signInBtn = document.getElementById("signIn");
+    const signUpBtn = document.getElementById("signUp");
+    const firstForm = document.getElementById("form1");
+    const secondForm = document.getElementById("form2");
+    const container = document.querySelector(".container");
+
+    signInBtn.addEventListener("click", () => {
+        container.classList.remove("right-panel-active");
+    });
+
+    signUpBtn.addEventListener("click", () => {
+        container.classList.add("right-panel-active");
+    });
+
+    // Allow form submission
+    firstForm.addEventListener("submit", (e) => {
+        // No need to prevent default behavior
+    });
+
+    // Prevent second form submission if needed
+    secondForm.addEventListener("submit", (e) => {
+        // e.preventDefault(); // Uncomment if you want to prevent form submission
+    });
+</script>

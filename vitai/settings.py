@@ -9,11 +9,22 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os
+
+from mongoengine import *
+import time
+from django.contrib.messages import constants as message_constants
 
 from pathlib import Path
+import time
+from mongoengine import connect
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,6 +38,30 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+import time
+# Connect to the MongoDB database locally
+from mongoengine import connect
+
+def connect_with_retry(db, host='localhost', port=27017, max_retries=20, retry_delay=3):
+    retries = 0
+    while retries < max_retries:
+        try:
+            connect(db=db, host=host, port=port)
+            print("Connected to the database successfully!")
+            return True
+        except Exception as e:
+            retries += 1
+            print(f"Connection failed (attempt {retries}/{max_retries}). Retrying in {retry_delay} seconds...")
+            time.sleep(retry_delay)
+
+    print("Failed to connect after several attempts. Please check your connection or credentials.")
+    return False
+
+db_name = "Vitai"
+host = "localhost"  # Local MongoDB server
+port = 27017        # Default MongoDB port
+
+connect_with_retry(db=db_name, host=host, port=port)
 
 # Application definition
 
@@ -38,6 +73,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'UserApp',
+    'EventApp',
+    'MealApp',
     'Exercise', 
 ]
 
@@ -49,7 +86,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+ ]
 
 ROOT_URLCONF = 'vitai.urls'
 
@@ -64,6 +101,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'UserApp.context_processors.user_context',
             ],
         },
     },
@@ -101,6 +139,34 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# settings.py
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',  # Change this to your desired log file path
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'ERROR',  # Only log ERROR messages for Django's internal logs
+            'propagate': False,
+        },
+        'UserApp': {  # Your custom app logger
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',  # Log all messages, including DEBUG
+            'propagate': False,
+        },
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -120,11 +186,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-# Media files (user-uploaded files)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Or your preferred session backend
+
+FACEPLUSPLUS_API_KEY = 'LK1kVhRZWfuwuECyIZxjwDipDBIey5Y3'
+FACEPLUSPLUS_API_SECRET = 'QDpBathJGWwXXNXwG5Ze4jE8UfgCuX_t'

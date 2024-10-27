@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+        <div style="margin-top: 400px" class="container">
+
+            <div id="contact" class="contact pb-100">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="xb-contact contact-mt--255">
+                            <div class="contact-title mb-35">
+                                <span><img src="assets/img/icon/directbox-notif.svg" alt="">add event</span>
+                                <h3>Do you have questions or went more <br> information?</h3>
+                            </div>
+
+<form method="POST" class="contact-form" action="{% url 'addEvent' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <!-- Event Name -->
+        <div class="col-lg-6">
+            <div class="xb-item--field">
+                <span><img src="{% static 'assets/img/icon/c_user.svg' %}" alt=""></span>
+                <input type="text" name="name" placeholder="Event Name" required>
+            </div>
+        </div>
+        <!-- Event Date -->
+        <div class="col-lg-6">
+            <div class="xb-item--field">
+                <span><img src="{% static 'assets/img/icon/c_calendar.svg' %}" alt=""></span>
+                <input type="date" name="date" placeholder="Event Date" required>
+            </div>
+        </div>
+        <!-- Location -->
+        <div class="col-12">
+            <div class="xb-item--field">
+                <span><img src="{% static 'assets/img/icon/c_location.svg' %}" alt=""></span>
+                <input type="text" name="location" placeholder="Location" required>
+            </div>
+        </div>
+        <!-- Participants -->
+        <div class="col-12">
+            <div class="xb-item--field">
+                <span><img src="{% static 'assets/img/icon/c_people.svg' %}" alt=""></span>
+                <input type="number" name="participants" placeholder="Number of Participants" required>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="col-12">
+            <button class="thm-btn thm-btn--black" type="submit">Add Event</button>
+        </div>
+    </div>
+</form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

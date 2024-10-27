@@ -13,9 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 from Exercise import views as ExerciseViews 
+from django.urls import path, include
+
 from UserApp import views as Userviews
 from django.conf import settings
 from django.conf.urls.static import static
@@ -23,6 +26,8 @@ from django.conf.urls.static import static
 urlpatterns = [
 
     path('', Userviews.home, name='home'),
+    path('users/', include('UserApp.urls')),
+
     path('admin/', admin.site.urls),
 
      # Exercise app URLs
@@ -32,5 +37,8 @@ urlpatterns = [
     path('exercises/delete/<int:pk>/', ExerciseViews.delete_exercise, name='delete_exercise'),
     path('exercise/<int:exercise_id>/', ExerciseViews.exercise_detail, name='exercise_detail'),
     path('pushup-counter/', ExerciseViews.pushup_counter_view, name='pushup-counter'),
+    path('event/', include('EventApp.urls')),
 
-]
+    path('meal/', include('MealApp.urls')),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
