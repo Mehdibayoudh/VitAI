@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
-import logging
-from mongoengine import connect
+
+from mongoengine import *
 import time
 from django.contrib.messages import constants as message_constants
 from pathlib import Path
@@ -20,6 +20,9 @@ import time
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -79,7 +82,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+ ]
 
 ROOT_URLCONF = 'vitai.urls'
 
@@ -94,6 +97,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'UserApp.context_processors.user_context',
             ],
         },
     },
@@ -131,6 +135,34 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# settings.py
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',  # Change this to your desired log file path
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'ERROR',  # Only log ERROR messages for Django's internal logs
+            'propagate': False,
+        },
+        'UserApp': {  # Your custom app logger
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',  # Log all messages, including DEBUG
+            'propagate': False,
+        },
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -150,17 +182,19 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'hpavilion198@gmail.com'
-EMAIL_HOST_PASSWORD = '2258369k'
+EMAIL_HOST_PASSWORD = 'dywc edei ytxb eweq'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Or your preferred session backend
+
+FACEPLUSPLUS_API_KEY = 'LK1kVhRZWfuwuECyIZxjwDipDBIey5Y3'
+FACEPLUSPLUS_API_SECRET = 'QDpBathJGWwXXNXwG5Ze4jE8UfgCuX_t'

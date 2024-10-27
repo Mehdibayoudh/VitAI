@@ -1,0 +1,9 @@
+<div class="container">
+    <h2>Login Status</h2>
+    {% if user %}
+        <p class="message">Welcome, {{ user.username }}!</p>
+        <p class="message">ID: {{ user.id }}</p>
+    {% else %}
+        <p class="message">Please log in to access your account.</p>
+    {% endif %}
+</div>

@@ -18,11 +18,19 @@ from django.contrib import admin
 from django.urls import path, include
 
 from UserApp import views as Userviews
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
+
     path('', Userviews.home, name='home'),
     path('users/', include('UserApp.urls')),
+
     path('admin/', admin.site.urls),
     path('event/', include('EventApp.urls')),
     path('mental/', include('MentalApp.urls')),
     path('meal/', include('MealApp.urls')),
-]
+
+
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
