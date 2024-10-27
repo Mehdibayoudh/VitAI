@@ -1,4 +1,7 @@
 from django import forms
+from .models import Mood
 
-class MoodInputForm(forms.Form):
-    mood = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'How do you feel?'}))
+class MoodForm(forms.ModelForm):
+    class Meta:
+        model = Mood
+        fields = ['mood_description', 'stress_level', 'energy_level', 'notes', 'duration']

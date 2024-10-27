@@ -10,14 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
-
+import logging
 from mongoengine import connect
 import time
 from django.contrib.messages import constants as message_constants
-
 from pathlib import Path
 import time
-from mongoengine import connect
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,8 +35,6 @@ ALLOWED_HOSTS = []
 
 import time
 # Connect to the MongoDB database locally
-from mongoengine import connect
-
 def connect_with_retry(db, host='localhost', port=27017, max_retries=20, retry_delay=3):
     retries = 0
     while retries < max_retries:
@@ -71,7 +67,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'UserApp',
     'EventApp',
-    'MentalApp'
+    'MentalApp',
     'MealApp',
 ]
 
@@ -109,12 +105,12 @@ WSGI_APPLICATION = 'vitai.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

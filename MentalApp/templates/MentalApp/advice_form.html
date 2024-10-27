@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Advice</title>
+</head>
+<body>
+    <h1>Generate Mental Health Advice</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="mood_id">Select Mood:</label>
+        <select name="mood_id" id="mood_id">
+            {% for mood in moods %}
+                <option value="{{ mood.id }}">{{ mood.mood_description }}</option>
+            {% empty %}
+                <option disabled>No moods recorded.</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Get Advice</button>
+    </form>
+    <a href="{% url 'mood_list' %}">Back to Mood List</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood List</title>
+</head>
+<body>
+    <h1>Your Moods</h1>
+    <a href="{% url 'mood_create' %}">Add New Mood</a>
+    <ul>
+        {% for mood in moods %}
+            <li>
+                {{ mood.mood_description }} - Stress: {{ mood.stress_level }} - Energy: {{ mood.energy_level }}
+                <a href="{% url 'mood_update' mood.id %}">Edit</a>
+                <form action="{% url 'mood_delete' mood.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% empty %}
+            <li>No moods recorded.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

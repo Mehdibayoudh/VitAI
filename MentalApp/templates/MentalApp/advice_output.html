@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advice</title>
+</head>
+<body>
+    <h1>Your Mood: {{ mood.mood_description }}</h1>
+    <p>Stress Level: {{ mood.stress_level }}</p>
+    <p>Energy Level: {{ mood.energy_level }}</p>
+    <p>Advice: {{ advice }}</p>
+    <a href="{% url 'mood_list' %}">Back to Mood List</a>
+</body>
+</html>
