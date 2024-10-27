@@ -1,0 +1,74 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<section class="why-us bg_img pt-70 pb-70" data-background="assets/img/bg/why_us_bg.jpg" style="background-image: url('assets/img/bg/why_us_bg.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-8">
+                <div class="xb-why-us">
+                    <div class="sec-title sec-title--white sec-title--two mb-50">
+                        <span class="sub-title">{{ form.instance.pk|yesno:"Update Exercise,Create Exercise" }}</span>
+                    </div>
+                    <form method="POST" class="row mt-none-50" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="col-lg-6 mt-50">
+                            <div class="why-us-item">
+                                {{ form.name.label_tag }}
+                                {{ form.name }}
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 mt-50">
+                            <div class="why-us-item">
+                                {{ form.category.label_tag }}
+                                {{ form.category }}
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 mt-50">
+                            <div class="why-us-item">
+                                {{ form.muscles_targeted.label_tag }}
+                                {{ form.muscles_targeted }}
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 mt-50">
+                            <div class="why-us-item">
+                                {{ form.duration.label_tag }}
+                                {{ form.duration }}
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 mt-50">
+                            <div class="why-us-item">
+                                {{ form.calories_burned_per_minute.label_tag }}
+                                {{ form.calories_burned_per_minute }}
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-12 mt-50">
+                            <div class="why-us-item">
+                                {{ form.description.label_tag }}
+                                {{ form.description }}
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 mt-50">
+                            <div class="why-us-item">
+                                {{ form.image.label_tag }}
+                                {{ form.image }}
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-12 mt-50">
+                            <button type="submit"  style="background-color: yellow; color: black; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 5px; cursor: pointer;">Save</button>
+                        </div>
+                    </form>
+                    <a href="{% url 'exercise_list' %}" class="btn btn-secondary mt-3">Back to list</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

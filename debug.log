@@ -321,6 +321,36 @@ Traceback (most recent call last):
   File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\helpers_shared.py", line 255, in _raise_last_write_error
     raise DuplicateKeyError(error.get("errmsg"), 11000, error)
 pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { : "mohamedmiaoui" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { : "mohamedmiaoui" }'}
+Error sending email: [WinError 10061] Aucune connexion n�a pu �tre �tablie car l�ordinateur cible l�a express�ment refus�e
+Internal Server Error: /users/signup
+Traceback (most recent call last):
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\mongoengine\document.py", line 448, in save
+    object_id = self._save_create(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\mongoengine\document.py", line 515, in _save_create
+    object_id = wc_collection.insert_one(doc).inserted_id
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\collection.py", line 891, in insert_one
+    self._insert_one(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\collection.py", line 831, in _insert_one
+    self._database.client._retryable_write(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 1898, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk, operation, operation_id)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 1784, in _retry_with_session
+    return self._retry_internal(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 1830, in _retry_internal
+    ).run()
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 2554, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 2676, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\collection.py", line 829, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\helpers_shared.py", line 285, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\helpers_shared.py", line 255, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }', 'keyPattern': {'username': 1}, 'keyValue': {'username': 'safa'}}
 
 During handling of the above exception, another exception occurred:
 
@@ -733,3 +763,15 @@ Traceback (most recent call last):
             ~~~~~^~~~~~~~~~~
 TypeError: unsupported operand type(s) for &: 'NoneType' and 'NoneType'
 "POST /meal/update/671eb76d94d30d32a4a9ed4b/ HTTP/1.1" 500 75534
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\UserApp\views.py", line 80, in signup
+    user, file_url = create_user(username, email, password, face_image)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\UserApp\views.py", line 129, in create_user
+    user.save()
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\mongoengine\document.py", line 473, in save
+    raise NotUniqueError(message % err)
+mongoengine.errors.NotUniqueError: Tried to save duplicate unique keys (E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }', 'keyPattern': {'username': 1}, 'keyValue': {'username': 'safa'}})
+"POST /users/signup HTTP/1.1" 500 158767

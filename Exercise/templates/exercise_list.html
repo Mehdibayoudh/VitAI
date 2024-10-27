@@ -1,0 +1,83 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<section id="shop" class="shop z-3 pos-rel pt-140 pb-150" data-bg-color="#161614" style="background-color: rgb(22, 22, 20);">
+    <div class="container">
+        <div class="ul_li_between mb-25">
+            <div class="sec-title sec-title--white sec-title--two mb-30">
+                <span class="sub-title">Exercises</span>
+            </div>
+            <div class="shop-carousel ul_li">
+                <div class="xb-swiper-arrow xb-swiper-arrow-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-4a614ef61060102fc9"><svg width="37" height="24" viewBox="0 0 37 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.892464 13.0607C0.306679 12.4749 0.306679 11.5251 0.892464 10.9393L10.4384 1.3934C11.0242 0.807611 11.9739 0.807611 12.5597 1.3934C13.1455 1.97919 13.1455 2.92893 12.5597 3.51472L4.07444 12L12.5597 20.4853C13.1455 21.0711 13.1455 22.0208 12.5597 22.6066C11.9739 23.1924 11.0242 23.1924 10.4384 22.6066L0.892464 13.0607ZM36.9531 13.5H1.95312V10.5H36.9531V13.5Z" fill="#2F2F29"></path>
+</svg></div>
+                <div class="xb-swiper-arrow xb-swiper-arrow-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-4a614ef61060102fc9"><svg width="37" height="24" viewBox="0 0 37 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M36.0607 13.0607C36.6464 12.4749 36.6464 11.5251 36.0607 10.9393L26.5147 1.3934C25.9289 0.807611 24.9792 0.807611 24.3934 1.3934C23.8076 1.97919 23.8076 2.92893 24.3934 3.51472L32.8787 12L24.3934 20.4853C23.8076 21.0711 23.8076 22.0208 24.3934 22.6066C24.9792 23.1924 25.9289 23.1924 26.5147 22.6066L36.0607 13.0607ZM0 13.5H35V10.5H0V13.5Z" fill="#2F2F29"></path>
+                  </svg></div>
+            </div>
+        </div>
+        <div class="product-slider swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div class="swiper-wrapper" id="swiper-wrapper-4a614ef61060102fc9" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-726px, 0px, 0px);"><div class="swiper-slide swiper-slide-duplicate" role="group" aria-label="6 / 9" style="width: 333px; margin-right: 30px;" data-swiper-slide-index="3">
+                    <div class="xb-product text-center pos-rel xb-hover-zoom">
+                        <div class="xb-item--img">
+                            <a href="shop-single.html"><img src="assets/img/shop/product_09.png" alt=""></a>
+                        </div>
+                        <div class="xb-item--holder">
+                            <h2 class="xb-item--title"><a href="shop-single.html">candy bits protine</a></h2>
+                            <h3 class="xb-item--price">$70.00<span>$85.00</span></h3>
+                            <ul class="xb-rating ul_li_center">
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                                <li><span>(40)</span></li>
+                            </ul>
+                        </div>
+                        <a class="xb-item--cart" href="shop-single.html"><img src="assets/img/icon/bag.svg" alt=""></a>
+                    </div>
+                </div>
+                {% for exercise in exercises %}
+                <div class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 9" style="width: 333px; margin-right: 30px;" data-swiper-slide-index="0">
+                    <div class="xb-product text-center pos-rel xb-hover-zoom">
+                        <div class="xb-item--img">
+                            <a href="{% url 'exercise_detail' exercise.pk %}">
+                                {% if exercise.image %}  {# Check if image exists #}
+                                <img src="{{ exercise.image.url }}" alt="{{ exercise.name }}">
+                            {% else %}
+                                <img src="../../static/assets/img/blog/img_04.png" alt="Default Image"> {# Default image if none exists #}
+                            {% endif %}
+                                                    </a>
+                                                </div>
+                        <div class="xb-item--holder">
+                    
+                            <h2 class="xb-item--title">
+                                <a href="{% url 'exercise_detail' exercise.pk %}">{{ exercise.name }}</a>
+                             </h2>
+                            <span>{{ exercise.muscles_targeted }}</span>
+                            <li> 
+                                <a href="{% url 'update_exercise' exercise.pk %}" title="Edit">
+                                    <i class="fas fa-edit" style="color: yellow;"></i> <!-- Edit icon -->
+                                </a> | 
+                                <a href="#" title="Delete" onclick="confirmDelete('{{ exercise.pk }}'); return false;">
+                                    <i class="fas fa-trash-alt" style="color: yellow;"></i> <!-- Delete icon -->
+                                </a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+               
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+    </div>
+    <a class="mt-4" href="{% url 'create_exercise' %}" 
+    style="background-color: yellow; color: black; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 5px; cursor: pointer;">
+    Add Exercise
+ </a>
+ 
+</section>
+<div id="message"></div> <!-- Div to display success/failure messages -->
+
+
+{% endblock %}
+

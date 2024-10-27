@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'UserApp',
     'EventApp',
     'MealApp',
+    'Exercise', 
 ]
 
 MIDDLEWARE = [
