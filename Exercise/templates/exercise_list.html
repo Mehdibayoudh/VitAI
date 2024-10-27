@@ -41,7 +41,7 @@
                 <div class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 9" style="width: 333px; margin-right: 30px;" data-swiper-slide-index="0">
                     <div class="xb-product text-center pos-rel xb-hover-zoom">
                         <div class="xb-item--img">
-                            <a href="shop-single.html">
+                            <a href="{% url 'exercise_detail' exercise.pk %}">
                                 {% if exercise.image %}  {# Check if image exists #}
                                 <img src="{{ exercise.image.url }}" alt="{{ exercise.name }}">
                             {% else %}
@@ -51,7 +51,9 @@
                                                 </div>
                         <div class="xb-item--holder">
                     
-                            <h2 class="xb-item--title"><a href="shop-single.html">{{ exercise.name }}</a></h2>
+                            <h2 class="xb-item--title">
+                                <a href="{% url 'exercise_detail' exercise.pk %}">{{ exercise.name }}</a>
+                             </h2>
                             <span>{{ exercise.muscles_targeted }}</span>
                             <li> 
                                 <a href="{% url 'update_exercise' exercise.pk %}" title="Edit">

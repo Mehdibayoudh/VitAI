@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<section class="exercise-detail pt-140 pb-150" style="background-color: #161614; color: #fff;">
+    <div class="container">
+        <div class="sec-title sec-title--white sec-title--two mb-30">
+            <h2>{{ exercise.name }}</h2>
+        </div>
+        <div class="exercise-content" style="display: flex;">
+           
+            <!-- Exercise Details Section -->
+            <div class="exercise-image" style="flex: 1;">
+                {% if exercise.image %}
+                    <img src="{{ exercise.image.url }}" alt="{{ exercise.name }}">
+                {% else %}
+                    <img src="../../static/assets/img/blog/img_04.png" alt="Default Image">
+                {% endif %}
+                <div class="exercise-details">
+                    <p><strong>Muscles Targeted:</strong> {{ exercise.muscles_targeted }}</p>
+                    <p><strong>Description:</strong> {{ exercise.description }}</p>
+                </div>
+            </div>
+             <!-- Video Stream Section -->
+             <div class="video-stream" style="flex: 1; margin-right: 20px;">
+                {% if exercise.name == "push up" %}
+                    <h2>Real-Time Push-Up Counter</h2>
+                    <button id="startCounterBtn" style="background-color: yellow; color: black; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 5px; cursor: pointer;">Count My Push-Ups</button>
+                    <div id="counterStream" style="display: none;">
+                        <img id="videoStream" src="" width="640" height="480" alt="Push-Up Counter Stream">
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById("startCounterBtn").addEventListener("click", function() {
+        // Display the video stream and start counting
+        const counterStream = document.getElementById("counterStream");
+        const videoStream = document.getElementById("videoStream");
+
+        // Show the video stream container
+        counterStream.style.display = "block";
+        
+        // Start the video stream only when the button is clicked
+        videoStream.src = "{% url 'pushup-counter' %}";
+
+        // Optionally, you could also implement logic to start counting here.
+        // For example, if your counter logic is in a separate function, you can call it here.
+    });
+</script>
+
+{% endblock %}

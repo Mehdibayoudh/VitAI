@@ -30,5 +30,7 @@ urlpatterns = [
     path('exercises/create/', ExerciseViews.create_exercise, name='create_exercise'),  # Create an exercise
     path('exercises/update/<int:pk>/', ExerciseViews.update_exercise, name='update_exercise'),  # Update an exercise
     path('exercises/delete/<int:pk>/', ExerciseViews.delete_exercise, name='delete_exercise'),
+    path('exercise/<int:exercise_id>/', ExerciseViews.exercise_detail, name='exercise_detail'),
+    path('pushup-counter/', ExerciseViews.pushup_counter_view, name='pushup-counter'),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
