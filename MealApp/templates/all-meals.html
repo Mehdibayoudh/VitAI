@@ -5,78 +5,7 @@
             <div class="bg_img position-botttom bottom--105 pb-70" data-background="assets/img/bg/pp_bg.png">
             
 
-            <!-- AI Calories And Macros Calculator -->
-            <section class="popular-product pt-120 pb-120">
-                <div class="container">
-                    <div class="sec-title text-center mb-30">
-                        <div style="display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 20px;">
-                        <h2 class="title">Find Out Your Daily Calories Intake !</h2>
-                        </div>
-                    </div>
-                    <div style="display: flex;
-                    flex-direction: row-reverse;
-                    justify-content: space-evenly;
-                    border: solid thin white;
-                    border-radius: 15px;
-                    padding: 50px;" >
-                    <div class="formIaSided">
-                    <h1 class="pb-2">Calorie Calculator</h1>
-
-                    <form style="display: flex;
-                            flex-direction: column;
-                            width: 100%;
-                            line-height: 17px;" action="{% url 'calorie_calculator'  %}" method="POST" action="">
-                        {% csrf_token %}
-                        <label class="pb-2" for="age">Age:</label>
-                        <input style="    height: 50px; border-radius: 20px;" type="number" id="age" name="age" required><br><br>
-                
-                        <label class="pb-2" for="height">Height (cm):</label>
-                        <input style="    height: 50px; border-radius: 20px;" type="number" id="height" name="height" required><br><br>
-                
-                        <label class="pb-2" for="weight">Weight (kg):</label>
-                        <input style="    height: 50px; border-radius: 20px;" type="number" id="weight" name="weight" required><br><br>
-                
-                        <label class="pb-2" for="activity">Activity Level:</label>
-                        <select style="color: orangered; font-weight: bold ;border-radius: 20px; border-color: orangered;" id="activity" name="activity" required>
-                            <option value="sedentary">Sedentary (little to no exercise)</option>
-                            <option value="light">Light (1-2 workouts per week)</option>
-                            <option value="moderate">Moderate (3-5 workouts per week)</option>
-                            <option value="active">Active (6-7 workouts per week)</option>
-                        </select><br><br>
-                
-                        <button style="    color: white;
-                        background-color: orangered;
-                        height: 50px;
-                        border-radius: 20px;" type="submit">Calculate Calories</button>
-                    </form>
-                </div>
-                <div class="picIaSide"><img style="width: 560px; border-radius: 15px;" src="{% static  'assets/img/miaouiPics/calorie_calculator_image.jpg' %}" alt=""></div>
-                </div>
-                
-                <div id="result" style="    color: white;
-                background-color: #000000;
-                margin-top: 20px;
-                padding: 20px;
-                border-radius: 10px;
-                border: solid thin white;">
-                    {% if calories %}
-                        <h3 style="margin: 0; color: orangered;">Calorie Recommendations:</h3>
-                        <p class="title" style="margin: 10px 0 0;">{{ calories|safe }}</p>  <!-- Use 'safe' to render HTML -->
-                    {% endif %}
-                    {% if error %}
-                        <p style="color: red;">Error: {{ error }}</p>
-                    {% endif %}
-                </div>
-                
-                </div>
-                    <div>
-                </div>
-            </section>
-            <!-- popular product end -->
+           
 
 
 
@@ -166,6 +95,82 @@
                     text-align: center;
                     color: white;">Total Calories Consumed Today is: {{ total_calories }} cal</p>
                     </div>
+                </div>
+            </section>
+            <!-- popular product end -->
+
+
+            
+
+             <!-- AI Calories And Macros Calculator -->
+             <section class="popular-product pt-120 pb-120">
+                <div class="container">
+                    <div class="sec-title text-center mb-30">
+                        <div style="display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 20px;">
+                        <h2 class="title">Find Out Your Daily Calories Intake !</h2>
+                        </div>
+                    </div>
+                    <div style="display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: space-evenly;
+                    border: solid thin white;
+                    border-radius: 15px;
+                    padding: 50px;" >
+                    <div class="formIaSided">
+                    <h1 class="pb-2">Calorie Calculator</h1>
+
+                    <form style="display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            line-height: 17px;" action="{% url 'calorie_calculator' %}" method="POST" action="">
+                        {% csrf_token %}
+                        <label class="pb-2" for="age">Age:</label>
+                        <input style="    height: 50px; border-radius: 20px;" type="number" id="age" name="age" required><br><br>
+                
+                        <label class="pb-2" for="height">Height (cm):</label>
+                        <input style="    height: 50px; border-radius: 20px;" type="number" id="height" name="height" required><br><br>
+                
+                        <label class="pb-2" for="weight">Weight (kg):</label>
+                        <input style="    height: 50px; border-radius: 20px;" type="number" id="weight" name="weight" required><br><br>
+                
+                        <label class="pb-2" for="activity">Activity Level:</label>
+                        <select style="color: orangered; font-weight: bold ;border-radius: 20px; border-color: orangered;" id="activity" name="activity" required>
+                            <option value="sedentary">Sedentary (little to no exercise)</option>
+                            <option value="light">Light (1-2 workouts per week)</option>
+                            <option value="moderate">Moderate (3-5 workouts per week)</option>
+                            <option value="active">Active (6-7 workouts per week)</option>
+                        </select><br><br>
+                
+                        <button style="    color: white;
+                        background-color: orangered;
+                        height: 50px;
+                        border-radius: 20px;" type="submit">Calculate Calories</button>
+                    </form>
+                </div>
+                <div class="picIaSide"><img style="width: 560px; border-radius: 15px;" src="{% static  'assets/img/miaouiPics/calorie_calculator_image.jpg' %}" alt=""></div>
+                </div>
+                
+                <div id="result" style="    color: white;
+                background-color: #000000;
+                margin-top: 20px;
+                padding: 20px;
+                border-radius: 10px;
+                border: solid thin white;">
+                    {% if calories %}
+                        <h3 style="margin: 0; color: orangered;">Calorie Recommendations:</h3>
+                        <p class="title" style="margin: 10px 0 0;">{{ calories|safe }}</p>  <!-- Use 'safe' to render HTML -->
+                    {% endif %}
+                    {% if error %}
+                        <p style="color: red;">Error: {{ error }}</p>
+                    {% endif %}
+                </div>
+                
+                </div>
+                    <div>
                 </div>
             </section>
             <!-- popular product end -->
