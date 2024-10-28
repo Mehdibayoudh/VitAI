@@ -14,10 +14,8 @@ import os
 from mongoengine import *
 import time
 from django.contrib.messages import constants as message_constants
-
 from pathlib import Path
 import time
-from mongoengine import connect
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,8 +38,6 @@ ALLOWED_HOSTS = []
 
 import time
 # Connect to the MongoDB database locally
-from mongoengine import connect
-
 def connect_with_retry(db, host='localhost', port=27017, max_retries=20, retry_delay=3):
     retries = 0
     while retries < max_retries:
@@ -74,6 +70,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'UserApp',
     'EventApp',
+    'MentalApp',
     'MealApp',
     'Exercise', 
 ]

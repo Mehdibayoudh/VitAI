@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+    <h1>Update Mood</h1>
+    <form action="{% url 'mood_update' mood.id %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="mood_description">Mood Description:</label>
+            <input type="text" class="form-control" id="mood_description" name="mood_description" value="{{ mood.mood_description }}" maxlength="200" required>
+        </div>
+
+        <div class="form-group">
+            <label for="stress_level">Stress Level (1-10):</label>
+            <input type="number" class="form-control" id="stress_level" name="stress_level" value="{{ mood.stress_level }}" min="1" max="10" required>
+        </div>
+
+        <div class="form-group">
+            <label for="energy_level">Energy Level (1-10):</label>
+            <input type="number" class="form-control" id="energy_level" name="energy_level" value="{{ mood.energy_level }}" min="1" max="10" required>
+        </div>
+
+        <div class="form-group">
+            <label for="notes">Notes:</label>
+            <textarea class="form-control" id="notes" name="notes" maxlength="200" required>{{ mood.notes }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Duration:</label>
+            <input type="text" class="form-control" id="duration" name="duration" value="{{ mood.duration }}" maxlength="200" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    <a href="{% url 'mood_list' %}" class="btn btn-link mt-3">Back to Mood List</a>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <h1>Your Moods</h1>
+        {% for mood in moods %}
+            <div class="col-md-2">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ mood.mood_description }}</h5>
+                        <p class="card-text"><strong>Stress Level:</strong> {{ mood.stress_level }}</p>
+                        <p class="card-text"><strong>Energy Level:</strong> {{ mood.energy_level }}</p>
+                        <br>
+                        <a href="{% url 'mood_update' mood.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'mood_show' mood.id %}" class="btn btn-secondary">Get Advice</a>
+                        <form action="{% url 'mood_delete' mood.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No moods recorded.</p>
+        {% endfor %}
+    <div class="text-center mb-4">
+        <a href="{% url 'mood_create' %}" class="btn btn-success">Add New Mood</a>
+    </div>
+</div>
+{% endblock %}

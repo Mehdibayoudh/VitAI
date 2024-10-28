@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+    <h1>Mood Details</h1>
+    
+    <div class="mb-4">
+        <h2>{{ mood.mood_description }}</h2>
+        <p><strong>Stress Level:</strong> {{ mood.stress_level }}</p>
+        <p><strong>Energy Level:</strong> {{ mood.energy_level }}</p>
+        <p><strong>Notes:</strong> {{ mood.notes }}</p>
+        <p><strong>Duration:</strong> {{ mood.duration }}</p>
+    </div>
+
+    <form action="{% url 'advice_generator' mood.id %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary mb-3">Give Me a Piece of Advice!</button>
+    </form>
+
+    <h3>Advice:</h3>
+    <ul class="list-unstyled">
+        {% for advice in advices %}
+            <li class="border p-2 mb-2">{{ advice }}</li>
+        {% endfor %}
+    </ul>
+    
+    <a href="{% url 'mood_list' %}" class="btn btn-link">Back to Mood List</a>
+</div>
+{% endblock %}
