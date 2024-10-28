@@ -29,8 +29,6 @@ urlpatterns = [
     path('users/', include('UserApp.urls')),
 
     path('admin/', admin.site.urls),
-<<<<<<< HEAD
-=======
 
      # Exercise app URLs
     path('exercises/', ExerciseViews.exercise_list, name='exercise_list'),  # List exercises
@@ -39,7 +37,6 @@ urlpatterns = [
     path('exercises/delete/<int:pk>/', ExerciseViews.delete_exercise, name='delete_exercise'),
     path('exercise/<int:exercise_id>/', ExerciseViews.exercise_detail, name='exercise_detail'),
     path('pushup-counter/', ExerciseViews.pushup_counter_view, name='pushup-counter'),
->>>>>>> origin/main
     path('event/', include('EventApp.urls')),
     path('mental/', include('MentalApp.urls')),
     path('meal/', include('MealApp.urls')),
