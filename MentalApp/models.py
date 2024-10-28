@@ -1,13 +1,13 @@
-from django.db import models
-from django.contrib.auth.models import User
+from mongoengine import *
+from UserApp.models import User
 
-class Mood(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Reference to the user
-    mood_description = models.CharField(max_length=255)  # Mood as a string
-    stress_level = models.IntegerField(default=0)  # Stress level (0-10 scale)
-    energy_level = models.IntegerField(default=5)  # Energy level (0-10 scale)
-    notes = models.TextField(blank=True, null=True)  # Additional notes (optional)
-    duration = models.CharField(max_length=100, blank=True, null=True)  # Duration of mood state (e.g., "1 hour", "all day")
+class Mood(Document):
+    user = ReferenceField(User)
+    mood_description = StringField(max_length=200, required=True)
+    stress_level = IntField(max_length=200, required=True)
+    energy_level = IntField(max_length=200, required=True)
+    notes = StringField(max_length=200, required=True)
+    duration = StringField(max_length=200, required=True)
 
     def __str__(self):
-        return f"{self.user.username} - Mood: {self.mood_description}, Stress: {self.stress_level}, Energy: {self.energy_level}"
+        return f"{self.user} - Mood: {self.mood_description}, Stress: {self.stress_level}, Energy: {self.energy_level}"
