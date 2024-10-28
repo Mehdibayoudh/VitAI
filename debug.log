@@ -259,6 +259,7 @@ Received face dimensions: {'top': 215, 'left': 252, 'width': 130, 'height': 130}
 Received landmarks: {'contour_chin': {'x': 316, 'y': 344}, 'contour_left1': {'x': 259, 'y': 243}, 'contour_left2': {'x': 258, 'y': 258}, 'contour_left3': {'x': 258, 'y': 272}, 'contour_left4': {'x': 259, 'y': 287}, 'contour_left5': {'x': 262, 'y': 301}, 'contour_left6': {'x': 267, 'y': 315}, 'contour_left7': {'x': 276, 'y': 326}, 'contour_left8': {'x': 287, 'y': 336}, 'contour_left9': {'x': 300, 'y': 342}, 'contour_right1': {'x': 375, 'y': 242}, 'contour_right2': {'x': 376, 'y': 256}, 'contour_right3': {'x': 375, 'y': 271}, 'contour_right4': {'x': 373, 'y': 285}, 'contour_right5': {'x': 370, 'y': 300}, 'contour_right6': {'x': 364, 'y': 313}, 'contour_right7': {'x': 356, 'y': 325}, 'contour_right8': {'x': 345, 'y': 334}, 'contour_right9': {'x': 332, 'y': 342}, 'left_eye_bottom': {'x': 285, 'y': 243}, 'left_eye_center': {'x': 285, 'y': 240}, 'left_eye_left_corner': {'x': 274, 'y': 241}, 'left_eye_lower_left_quarter': {'x': 279, 'y': 243}, 'left_eye_lower_right_quarter': {'x': 291, 'y': 242}, 'left_eye_pupil': {'x': 285, 'y': 239}, 'left_eye_right_corner': {'x': 297, 'y': 240}, 'left_eye_top': {'x': 285, 'y': 235}, 'left_eye_upper_left_quarter': {'x': 279, 'y': 237}, 'left_eye_upper_right_quarter': {'x': 291, 'y': 236}, 'left_eyebrow_left_corner': {'x': 266, 'y': 226}, 'left_eyebrow_lower_left_quarter': {'x': 274, 'y': 226}, 'left_eyebrow_lower_middle': {'x': 283, 'y': 224}, 'left_eyebrow_lower_right_quarter': {'x': 292, 'y': 224}, 'left_eyebrow_right_corner': {'x': 301, 'y': 222}, 'left_eyebrow_upper_left_quarter': {'x': 273, 'y': 220}, 'left_eyebrow_upper_middle': {'x': 282, 'y': 217}, 'left_eyebrow_upper_right_quarter': {'x': 292, 'y': 218}, 'mouth_left_corner': {'x': 293, 'y': 300}, 'mouth_lower_lip_bottom': {'x': 315, 'y': 311}, 'mouth_lower_lip_left_contour1': {'x': 304, 'y': 301}, 'mouth_lower_lip_left_contour2': {'x': 298, 'y': 305}, 'mouth_lower_lip_left_contour3': {'x': 306, 'y': 309}, 'mouth_lower_lip_right_contour1': {'x': 325, 'y': 301}, 'mouth_lower_lip_right_contour2': {'x': 331, 'y': 305}, 'mouth_lower_lip_right_contour3': {'x': 324, 'y': 309}, 'mouth_lower_lip_top': {'x': 315, 'y': 302}, 'mouth_right_corner': {'x': 336, 'y': 300}, 'mouth_upper_lip_bottom': {'x': 315, 'y': 295}, 'mouth_upper_lip_left_contour1': {'x': 309, 'y': 287}, 'mouth_upper_lip_left_contour2': {'x': 299, 'y': 292}, 'mouth_upper_lip_left_contour3': {'x': 304, 'y': 295}, 'mouth_upper_lip_right_contour1': {'x': 321, 'y': 287}, 'mouth_upper_lip_right_contour2': {'x': 330, 'y': 292}, 'mouth_upper_lip_right_contour3': {'x': 325, 'y': 296}, 'mouth_upper_lip_top': {'x': 315, 'y': 289}, 'nose_contour_left1': {'x': 305, 'y': 241}, 'nose_contour_left2': {'x': 300, 'y': 263}, 'nose_contour_left3': {'x': 305, 'y': 275}, 'nose_contour_lower_middle': {'x': 315, 'y': 277}, 'nose_contour_right1': {'x': 325, 'y': 241}, 'nose_contour_right2': {'x': 329, 'y': 262}, 'nose_contour_right3': {'x': 324, 'y': 275}, 'nose_left': {'x': 296, 'y': 272}, 'nose_right': {'x': 332, 'y': 271}, 'nose_tip': {'x': 315, 'y': 265}, 'right_eye_bottom': {'x': 346, 'y': 243}, 'right_eye_center': {'x': 346, 'y': 240}, 'right_eye_left_corner': {'x': 335, 'y': 240}, 'right_eye_lower_left_quarter': {'x': 340, 'y': 242}, 'right_eye_lower_right_quarter': {'x': 352, 'y': 242}, 'right_eye_pupil': {'x': 346, 'y': 239}, 'right_eye_right_corner': {'x': 357, 'y': 240}, 'right_eye_top': {'x': 346, 'y': 235}, 'right_eye_upper_left_quarter': {'x': 340, 'y': 236}, 'right_eye_upper_right_quarter': {'x': 352, 'y': 237}, 'right_eyebrow_left_corner': {'x': 329, 'y': 221}, 'right_eyebrow_lower_left_quarter': {'x': 339, 'y': 222}, 'right_eyebrow_lower_middle': {'x': 348, 'y': 222}, 'right_eyebrow_lower_right_quarter': {'x': 358, 'y': 222}, 'right_eyebrow_right_corner': {'x': 366, 'y': 223}, 'right_eyebrow_upper_left_quarter': {'x': 338, 'y': 216}, 'right_eyebrow_upper_middle': {'x': 348, 'y': 214}, 'right_eyebrow_upper_right_quarter': {'x': 359, 'y': 216}}
 Received face token: b7afe953113761e7acd108cf2b10249e
 Received user ID: 671c1a6169ec199bdc81fe57
+<<<<<<< HEAD
 User retrieved: admin, is_active: True, token: PxDCTPAj3RrpZzJaYG9tB6cATzXPTDOe3NgxUkWYSpfUcYNkRwe4rzCznAN59dzA
 User saved: admin, is_active: True
 Internal Server Error: /users/login
@@ -707,10 +708,105 @@ Traceback (most recent call last):
   File "C:\Users\kandi\OneDrive\Bureau\Studies\Django_Project\VitAI\venv\Lib\site-packages\pymongo\helpers_shared.py", line 255, in _raise_last_write_error
     raise DuplicateKeyError(error.get("errmsg"), 11000, error)
 pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: Vitai.mood index: mood_description_1 dup key: { mood_description: "é&"" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: Vitai.mood index: mood_description_1 dup key: { mood_description: "é&"" }', 'keyPattern': {'mood_description': 1}, 'keyValue': {'mood_description': 'é&"'}}
+=======
+Internal Server Error: /meal/allMeals
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 17, in meal_list
+    meals = Meal.objects(user=User.objects.get(id="67152708d4517e74c43080b3"), date=datetime.date.today()) #hard coding the user for now
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 274, in get
+    result = next(queryset)
+             ^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1651, in __next__
+    doc = self._document._from_son(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\document.py", line 841, in _from_son
+    obj = cls(__auto_convert=False, _created=created, **data)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\document.py", line 99, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'image', 'verified'}" do not exist on the document "User"
+"GET /meal/allMeals HTTP/1.1" 500 93459
+Error sending email: SMTP.starttls() got an unexpected keyword argument 'keyfile'
+Internal Server Error: /users/signup
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\document.py", line 448, in save
+    object_id = self._save_create(
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\document.py", line 515, in _save_create
+    object_id = wc_collection.insert_one(doc).inserted_id
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\collection.py", line 891, in insert_one
+    self._insert_one(
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\collection.py", line 831, in _insert_one
+    self._database.client._retryable_write(
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1898, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk, operation, operation_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1784, in _retry_with_session
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1830, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2554, in run
+    return self._read() if self._is_read else self._write()
+                                              ^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2676, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\collection.py", line 829, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\helpers_shared.py", line 285, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\helpers_shared.py", line 255, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { : "mohamedmiaoui" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { : "mohamedmiaoui" }'}
+Error sending email: [WinError 10061] Aucune connexion nï¿½a pu ï¿½tre ï¿½tablie car lï¿½ordinateur cible lï¿½a expressï¿½ment refusï¿½e
+Internal Server Error: /users/signup
+Traceback (most recent call last):
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\mongoengine\document.py", line 448, in save
+    object_id = self._save_create(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\mongoengine\document.py", line 515, in _save_create
+    object_id = wc_collection.insert_one(doc).inserted_id
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\collection.py", line 891, in insert_one
+    self._insert_one(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\collection.py", line 831, in _insert_one
+    self._database.client._retryable_write(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 1898, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk, operation, operation_id)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 1784, in _retry_with_session
+    return self._retry_internal(
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 1830, in _retry_internal
+    ).run()
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 2554, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\mongo_client.py", line 2676, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\synchronous\collection.py", line 829, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\helpers_shared.py", line 285, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\pymongo\helpers_shared.py", line 255, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }', 'keyPattern': {'username': 1}, 'keyValue': {'username': 'safa'}}
+>>>>>>> origin/main
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+<<<<<<< HEAD
   File "C:\Users\kandi\OneDrive\Bureau\Studies\Django_Project\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
     response = get_response(request)
                ^^^^^^^^^^^^^^^^^^^^^
@@ -760,10 +856,35 @@ Traceback (most recent call last):
   File "C:\Users\kandi\OneDrive\Bureau\Studies\Django_Project\VitAI\venv\Lib\site-packages\pymongo\helpers_shared.py", line 255, in _raise_last_write_error
     raise DuplicateKeyError(error.get("errmsg"), 11000, error)
 pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: Vitai.mood index: mood_description_1 dup key: { mood_description: "é&"" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: Vitai.mood index: mood_description_1 dup key: { mood_description: "é&"" }', 'keyPattern': {'mood_description': 1}, 'keyValue': {'mood_description': 'é&"'}}
+=======
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\UserApp\views.py", line 80, in signup
+    user, file_url = create_user(username, email, password, face_image)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\UserApp\views.py", line 129, in create_user
+    user.save()
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\document.py", line 473, in save
+    raise NotUniqueError(message % err)
+mongoengine.errors.NotUniqueError: Tried to save duplicate unique keys (E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { : "mohamedmiaoui" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { : "mohamedmiaoui" }'})
+"POST /users/signup HTTP/1.1" 500 158183
+Error sending email: SMTP.starttls() got an unexpected keyword argument 'keyfile'
+Internal Server Error: /users/signup
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\contrib\messages\api.py", line 27, in add_message
+    messages = request._messages
+               ^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute '_messages'
+>>>>>>> origin/main
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+<<<<<<< HEAD
   File "C:\Users\kandi\OneDrive\Bureau\Studies\Django_Project\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
     response = get_response(request)
                ^^^^^^^^^^^^^^^^^^^^^
@@ -2474,3 +2595,399 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'advice_generator' with arguments '(ObjectId('671ec0812dcad1893671e92a'),)' not found. 1 pattern(s) tried: ['mental/mood/advice/\\Z']
 "GET /mental/mood/show/671ec0812dcad1893671e92a/ HTTP/1.1" 500 131083
+=======
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\UserApp\views.py", line 76, in signup
+    if not validate_passwords(password, checkPassword) or user_exists(email):
+                                                          ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\UserApp\views.py", line 104, in user_exists
+    messages.error(None, "User with this email already exists.")
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\contrib\messages\api.py", line 121, in error
+    add_message(
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\contrib\messages\api.py", line 30, in add_message
+    raise TypeError(
+TypeError: add_message() argument must be an HttpRequest object, not 'NoneType'.
+"POST /users/signup HTTP/1.1" 500 91950
+Internal Server Error: /meal/allMeals
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 274, in get
+    result = next(queryset)
+             ^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1646, in __next__
+    raw_doc = next(self._cursor)
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\cursor.py", line 1281, in __next__
+    return self.next()
+           ^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\cursor.py", line 1260, in next
+    raise StopIteration
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 17, in meal_list
+    meals = Meal.objects(user=User.objects.get(id="67152708d4517e74c43080b3"), date=datetime.date.today()) #hard coding the user for now
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 277, in get
+    raise queryset._document.DoesNotExist(msg)
+UserApp.models.DoesNotExist: User matching query does not exist.
+"GET /meal/allMeals HTTP/1.1" 500 92241
+Internal Server Error: /meal/allMeals
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 576, in to_mongo
+    return ObjectId(str(value))
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 105, in __init__
+    self.__validate(oid)
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 193, in __validate
+    _raise_invalid_id(oid)
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 38, in _raise_invalid_id
+    raise InvalidId(
+bson.errors.InvalidId: 'AnonymousUser' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 18, in meal_list
+    total_calories = sum(meal.calories for meal in meals)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 18, in <genexpr>
+    total_calories = sum(meal.calories for meal in meals)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\queryset.py", line 109, in _iter_results
+    self._populate_cache()
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\queryset.py", line 128, in _populate_cache
+    self._result_cache.append(next(self))
+                              ^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1646, in __next__
+    raw_doc = next(self._cursor)
+                   ^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1720, in _cursor
+    self._cursor_obj = self._collection.find(self._query, **self._cursor_args)
+                                             ^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1769, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 91, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 184, in accept
+    return visitor.visit_query(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 80, in visit_query
+    return transform.query(self.document, **query.query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\transform.py", line 133, in query
+    value = field.prepare_query_value(op, value)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\fields.py", line 1259, in prepare_query_value
+    return self.to_mongo(value)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\fields.py", line 1236, in to_mongo
+    id_ = id_field.to_mongo(id_)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 578, in to_mongo
+    self.error(str(e))
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 215, in error
+    raise ValidationError(message, errors=errors, field_name=field_name)
+mongoengine.errors.ValidationError: 'AnonymousUser' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+"GET /meal/allMeals HTTP/1.1" 500 147005
+Internal Server Error: /meal/allMeals
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 576, in to_mongo
+    return ObjectId(str(value))
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 105, in __init__
+    self.__validate(oid)
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 193, in __validate
+    _raise_invalid_id(oid)
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 38, in _raise_invalid_id
+    raise InvalidId(
+bson.errors.InvalidId: 'AnonymousUser' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 18, in meal_list
+    total_calories = sum(meal.calories for meal in meals)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 18, in <genexpr>
+    total_calories = sum(meal.calories for meal in meals)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\queryset.py", line 109, in _iter_results
+    self._populate_cache()
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\queryset.py", line 128, in _populate_cache
+    self._result_cache.append(next(self))
+                              ^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1646, in __next__
+    raw_doc = next(self._cursor)
+                   ^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1720, in _cursor
+    self._cursor_obj = self._collection.find(self._query, **self._cursor_args)
+                                             ^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1769, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 91, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 184, in accept
+    return visitor.visit_query(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 80, in visit_query
+    return transform.query(self.document, **query.query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\transform.py", line 133, in query
+    value = field.prepare_query_value(op, value)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\fields.py", line 1259, in prepare_query_value
+    return self.to_mongo(value)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\fields.py", line 1236, in to_mongo
+    id_ = id_field.to_mongo(id_)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 578, in to_mongo
+    self.error(str(e))
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 215, in error
+    raise ValidationError(message, errors=errors, field_name=field_name)
+mongoengine.errors.ValidationError: 'AnonymousUser' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+"GET /meal/allMeals HTTP/1.1" 500 146868
+Internal Server Error: /meal/allMeals
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 576, in to_mongo
+    return ObjectId(str(value))
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 105, in __init__
+    self.__validate(oid)
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 193, in __validate
+    _raise_invalid_id(oid)
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 38, in _raise_invalid_id
+    raise InvalidId(
+bson.errors.InvalidId: 'AnonymousUser' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 18, in meal_list
+    total_calories = sum(meal.calories for meal in meals)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 18, in <genexpr>
+    total_calories = sum(meal.calories for meal in meals)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\queryset.py", line 109, in _iter_results
+    self._populate_cache()
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\queryset.py", line 128, in _populate_cache
+    self._result_cache.append(next(self))
+                              ^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1646, in __next__
+    raw_doc = next(self._cursor)
+                   ^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1720, in _cursor
+    self._cursor_obj = self._collection.find(self._query, **self._cursor_args)
+                                             ^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1769, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 91, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 184, in accept
+    return visitor.visit_query(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 80, in visit_query
+    return transform.query(self.document, **query.query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\transform.py", line 133, in query
+    value = field.prepare_query_value(op, value)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\fields.py", line 1259, in prepare_query_value
+    return self.to_mongo(value)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\fields.py", line 1236, in to_mongo
+    id_ = id_field.to_mongo(id_)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 578, in to_mongo
+    self.error(str(e))
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 215, in error
+    raise ValidationError(message, errors=errors, field_name=field_name)
+mongoengine.errors.ValidationError: 'AnonymousUser' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+"GET /meal/allMeals HTTP/1.1" 500 147005
+Internal Server Error: /meal/allMeals
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 576, in to_mongo
+    return ObjectId(str(value))
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 105, in __init__
+    self.__validate(oid)
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 193, in __validate
+    _raise_invalid_id(oid)
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\bson\objectid.py", line 38, in _raise_invalid_id
+    raise InvalidId(
+bson.errors.InvalidId: 'AnonymousUser' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 18, in meal_list
+    total_calories = sum(meal.calories for meal in meals)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 18, in <genexpr>
+    total_calories = sum(meal.calories for meal in meals)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\queryset.py", line 109, in _iter_results
+    self._populate_cache()
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\queryset.py", line 128, in _populate_cache
+    self._result_cache.append(next(self))
+                              ^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1646, in __next__
+    raw_doc = next(self._cursor)
+                   ^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1720, in _cursor
+    self._cursor_obj = self._collection.find(self._query, **self._cursor_args)
+                                             ^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\base.py", line 1769, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 91, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 184, in accept
+    return visitor.visit_query(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\visitor.py", line 80, in visit_query
+    return transform.query(self.document, **query.query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\queryset\transform.py", line 133, in query
+    value = field.prepare_query_value(op, value)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\fields.py", line 1259, in prepare_query_value
+    return self.to_mongo(value)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\fields.py", line 1236, in to_mongo
+    id_ = id_field.to_mongo(id_)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 578, in to_mongo
+    self.error(str(e))
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\base\fields.py", line 215, in error
+    raise ValidationError(message, errors=errors, field_name=field_name)
+mongoengine.errors.ValidationError: 'AnonymousUser' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+"GET /meal/allMeals HTTP/1.1" 500 147007
+Internal Server Error: /meal/addMeal
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 35, in add_meal
+    meal.save()
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\document.py", line 448, in save
+    object_id = self._save_create(
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\mongoengine\document.py", line 515, in _save_create
+    object_id = wc_collection.insert_one(doc).inserted_id
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\collection.py", line 891, in insert_one
+    self._insert_one(
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\collection.py", line 831, in _insert_one
+    self._database.client._retryable_write(
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1898, in _retryable_write
+    return self._retry_with_session(retryable, func, s, bulk, operation, operation_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1784, in _retry_with_session
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1830, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2554, in run
+    return self._read() if self._is_read else self._write()
+                                              ^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2676, in _write
+    return self._func(self._session, conn, self._retryable)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\collection.py", line 819, in _insert_command
+    result = conn.command(
+             ^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\helpers.py", line 45, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\pool.py", line 566, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\pool.py", line 538, in command
+    return command(
+           ^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\synchronous\network.py", line 158, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+                                          ^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\pymongo\message.py", line 415, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bson.errors.InvalidDocument: cannot encode object: <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x000001D0F53DD9D0>>, of type: <class 'django.utils.functional.SimpleLazyObject'>
+"POST /meal/addMeal HTTP/1.1" 500 172407
+Internal Server Error: /meal/update/671eb76d94d30d32a4a9ed4b/
+Traceback (most recent call last):
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\medya\Desktop\Projects\VitAI\MealApp\views.py", line 51, in update_meal
+    if not (name & meal_type and calories and proteins and carbs and fats):
+            ~~~~~^~~~~~~~~~~
+TypeError: unsupported operand type(s) for &: 'NoneType' and 'NoneType'
+"POST /meal/update/671eb76d94d30d32a4a9ed4b/ HTTP/1.1" 500 75534
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\UserApp\views.py", line 80, in signup
+    user, file_url = create_user(username, email, password, face_image)
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\UserApp\views.py", line 129, in create_user
+    user.save()
+  File "C:\Users\grech\OneDrive\Bureau\VitAI\pose_env\lib\site-packages\mongoengine\document.py", line 473, in save
+    raise NotUniqueError(message % err)
+mongoengine.errors.NotUniqueError: Tried to save duplicate unique keys (E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: Vitai.user index: username_1 dup key: { username: "safa" }', 'keyPattern': {'username': 1}, 'keyValue': {'username': 'safa'}})
+"POST /users/signup HTTP/1.1" 500 158767
+>>>>>>> origin/main

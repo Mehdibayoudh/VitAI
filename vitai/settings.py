@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'EventApp',
     'MentalApp',
     'MealApp',
+    'Exercise', 
 ]
 
 MIDDLEWARE = [
